@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e8ee5138-cd69-4509-bf5a-a4b406f180a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mylog.log" beforeDir="false" afterPath="$PROJECT_DIR$/mylog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mylog.log.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/CharactersRP/Characters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/CharactersRP/Characters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/HPUpdater.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/HPUpdater.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/UsablesRP/Potions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/UsablesRP/Rings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/UsablesRP/Usables.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/UsablesRP/Usables.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/CloseRangeRP/CloseRange.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/CloseRangeRP/CloseRange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/CloseRangeRP/Club.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/CloseRangeRP/Club.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/CloseRangeRP/LongSword.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/CloseRangeRP/LongSword.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/CloseRangeRP/StarterWeapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/CloseRangeRP/StarterWeapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/LongRangeRP/Bow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/LongRangeRP/Bow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/LongRangeRP/Glock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/LongRangeRP/Glock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/LongRangeRP/LongRange.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/LongRangeRP/LongRange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/Weapons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/ItemsRP/WeaponsRP/Weapons.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/RP/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/RP/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/CharactersRP/Characters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/CharactersRP/Characters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/CharactersRP/Dwarf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/CharactersRP/Dwarf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/CharactersRP/Elf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/CharactersRP/Elf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/DamageCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/DamageCalc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/HPUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/HPUpdater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/PotionsRP/DamagePotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/PotionsRP/DamagePotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/PotionsRP/HealPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/PotionsRP/HealPotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/PotionsRP/Potions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/PotionsRP/Potions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/RingsRP/ProtectionRing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/RingsRP/ProtectionRing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/RingsRP/Rings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/RingsRP/Rings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/RingsRP/StrenghRing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/RingsRP/StrenghRing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/Usables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/UsablesRP/Usables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/CloseRangeRP/CloseRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/CloseRangeRP/CloseRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/CloseRangeRP/Club.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/CloseRangeRP/Club.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/CloseRangeRP/LongSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/CloseRangeRP/LongSword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/CloseRangeRP/StarterWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/CloseRangeRP/StarterWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/LongRangeRP/Bow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/LongRangeRP/Bow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/LongRangeRP/Glock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/LongRangeRP/Glock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/LongRangeRP/LongRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/LongRangeRP/LongRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/Weapons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/ItemsRP/WeaponsRP/Weapons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RP/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RP/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2VNSYY6QuXhrTUmk1AsKttT0Cmf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8ee5138-cd69-4509-bf5a-a4b406f180a0" name="Changes" comment="" />
+      <created>1694675092958</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694675092958</updated>
+      <workItem from="1694675094008" duration="83000" />
+      <workItem from="1694675184149" duration="2862000" />
+      <workItem from="1695191568337" duration="381000" />
+      <workItem from="1695198484171" duration="25000" />
+      <workItem from="1695201431170" duration="2198000" />
+      <workItem from="1695208954687" duration="3461000" />
+      <workItem from="1695213624119" duration="4505000" />
+      <workItem from="1695218317714" duration="32000" />
+      <workItem from="1695218365334" duration="2406000" />
+      <workItem from="1695275764309" duration="188000" />
+      <workItem from="1695276007901" duration="1312000" />
+      <workItem from="1695277551492" duration="1030000" />
+      <workItem from="1695278628840" duration="4599000" />
+      <workItem from="1695284457986" duration="30000" />
+      <workItem from="1695284515191" duration="262000" />
+      <workItem from="1695284783904" duration="3506000" />
+      <workItem from="1695291297348" duration="2108000" />
+      <workItem from="1695293499056" duration="3461000" />
+      <workItem from="1695298436035" duration="6871000" />
+      <workItem from="1695359660896" duration="7660000" />
+      <workItem from="1695367503607" duration="399000" />
+      <workItem from="1695367947424" duration="23000" />
+      <workItem from="1695367981321" duration="46000" />
+      <workItem from="1695368043904" duration="53000" />
+      <workItem from="1695368106530" duration="2226000" />
+      <workItem from="1695372903444" duration="130000" />
+      <workItem from="1695373041485" duration="2601000" />
+      <workItem from="1695378745860" duration="11175000" />
+      <workItem from="1695620305007" duration="14220000" />
+      <workItem from="1695637948439" duration="11385000" />
+      <workItem from="1695705400253" duration="4774000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/RP/DamageCalc.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
