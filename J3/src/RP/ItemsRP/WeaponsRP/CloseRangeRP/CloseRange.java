@@ -9,4 +9,12 @@ public class CloseRange extends Weapons {
         super(name, weight, damage, baseDamage);
         this.additionalDefense = additionalDefense;
     }
+
+    public int getAdditionalDefense() {
+        return additionalDefense;
+    }
+
+    public void setAdditionalDefense(int additionalDefense) {
+        this.additionalDefense = additionalDefense;
+    }
 }

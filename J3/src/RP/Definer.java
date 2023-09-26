@@ -17,25 +17,26 @@ public class Definer {
     public static boolean changingWeapon = false;
     public static boolean removing = false;
     public static int difficulty = 0;
+    public static int counter = 0;
     public static boolean usingPotions = false;
     public static boolean bossFight = true;
     public static boolean wonOrLose = true;
     public static HealPotion healPotions = new HealPotion("Gandalfs Pisse",5,30);
-    public static DamagePotion damagePotions = new DamagePotion("Uranurin",5,5);
-    public static ProtectionRing gandalfRing = new ProtectionRing("Gandalfs Ehering",5,10);
+    public static DamagePotion damagePotions = new DamagePotion("Uranurin",5,10);
+    public static ProtectionRing gandalfRing = new ProtectionRing("Gandalfs Ehering",5,20);
     public static StrenghRing ogersRing = new StrenghRing("Ogers Prachtstück",5,20);
 
-    public static Glock glock = new Glock("Ratatata Glock",12,20,20);
-    public static StarterWeapon starterWeapon = new StarterWeapon("Shitty Sword",15,20,20,4);
-    public static LongSword longSword = new LongSword("Kurzes Lang Schwert",30,20,20,5);
+    public static Glock glock = new Glock("Ratatata Glock",12,60,20);
+    public static StarterWeapon starterWeapon = new StarterWeapon("Shitty Sword",15,50,20,4);
+    public static LongSword longSword = new LongSword("Kurzes Lang Schwert",30,60,20,5);
     public static Dwarf dwarf = new Dwarf("Dwarfigol aka Dwarf", 100, 45, starterWeapon,100,1);
     public static Monkey monkey = new Monkey("Uga",70,40,monkey(),70,1);
 
 
 
-    public static ElfMagic healSpell = new ElfMagic(50);
-    public static Bow bow = new Bow("Big Bunda Bow",20,20,20);
-    public static Elf elf = new Elf("Josephine aka Elf",50,25,starterWeapon,50,2,null);
+    public static ElfMagic healSpell = new ElfMagic(5);
+    public static Bow bow = new Bow("Big Bunda Bow",20,40,20);
+    public static Elf elf = new Elf("Josephine aka Elf",100,25,starterWeapon,50,2,null);
     public static Goblin goblin = new Goblin("Goblinus aka Goblin",100,45,starterWeapon,100,1);
 
 

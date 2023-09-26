@@ -24,7 +24,7 @@ public class  Inventory{
         if (item instanceof Weapons){
                 weight += item.getWeight();
                 if (weight > allCharacter().get(selectedChar).getCarryWeight()){
-                    System.out.println("Inv full wanna Drop something\n y = ye n = no\n");
+                    System.out.println("Inv full");
                     removing = true;
                 }else {
                     inv.add(item);

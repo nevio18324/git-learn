@@ -15,6 +15,46 @@ import static RP.Inventory.inv;
 import static RP.Inventory.invAdder;
 import static RP.Main.*;
 public class Game {
+    public static void rules(){
+        System.out.println("    Dwarf Damage Calculation :\n" +
+                "        Damage is calculated based on the character's weapon and a random factor.\n" +
+                "        The damage is a random value between 90% and 110% of the character's weapon damage.\n" +
+                "\n" +
+                "    Elf Damage Calculation :\n" +
+                "        Damage calculation depends on the Elf's weapon, random factor, and spell.\n" +
+                "        If the Elf has a bow and no spell, the damage is 150% of the weapon damage.\n" +
+                "        If the Elf has a bow and a spell, the damage is 150% of the weapon damage plus half of the spell's effect.\n" +
+                "        If the Elf has any other weapon, the damage is a random value between 90% and 110% of the weapon damage.\n" +
+                "\n" +
+                "    Goblin Damage Calculation :\n" +
+                "        Damage calculation depends on the character's weapon and a random factor.\n" +
+                "        If the Goblin has a bow, the damage is 150% of the weapon damage.\n" +
+                "        If the Goblin has any other weapon, the damage is a random value between 90% and 110% of the weapon damage.\n" +
+                "\n" +
+                "    Human Damage Calculation :\n" +
+                "        Damage is calculated based on the Human's weapon and a random factor.\n" +
+                "        The damage is a random value between 90% and 110% of the Human's weapon damage.\n" +
+                "\n" +
+                "    Monkey Damage Calculation :\n" +
+                "        Damage calculation depends on the character's weapon, random factor, and whether the weapon is a LifeStealBanana.\n" +
+                "        If the Monkey has a LifeStealBanana, it can potentially steal HP from the opponent.\n" +
+                "        If the Monkey has a DodgeBanana, it can potentially Dodge the Enemies attack.\n" +
+                "        The Monkey cannot get any Rewards u get one Banana as a Weapon\n"+
+                "        The Monkey gains HP based on the damage dealt by the weapon.\n" +
+                "        It can't go above his Max HP.\n" +
+                "\n" +
+                "    Ogre Damage Calculation :\n" +
+                "        Damage calculation depends on the Ogre's weapon, random factor, and current HP.\n" +
+                "        If the Oger's HP is at or below 25% of the maximum HP, the damage is tripled.\n" +
+                "        Otherwise, the damage is a random value between 90% and 110% of the weapon damage.\n" +
+                "\n" +
+                "    Troll Damage Calculation :\n" +
+                "        Damage calculation depends on the character's weapon and a random factor.\n" +
+                "        If the Troll has a Club, the damage is doubled.\n" +
+                "        If the Troll has any other weapon, the damage is a random value between 90% and 110% of the weapon damage.");
+        System.out.println("If u read them press Enter");
+    }
+
 
     public static void charSelection(){
         System.out.println("Choose ur Character");
@@ -30,19 +70,32 @@ public class Game {
 
 
 
+
     public static void fight(int selectedChar, int generator) {
         Random rand= new Random();
-        System.out.println(allCharacter().get(selectedChar).getName());
-        System.out.println(allCharacter().get(generator).getCharStats()+"\n Is ur Enemy");
-        logger.fine(allCharacter().get(generator).getName()+"  Is ur Enemy");
+        clearScreen();
         int randomWeapon = rand.nextInt(allWeapons().size());
         allCharacter().get(generator).setWeapon(allWeapons().get(randomWeapon));
+        System.out.println(allCharacter().get(generator).getCharStats()+"\n   Base Damage "+ damageCalc.damageCalc(allCharacter().get(generator)));
+        logger.fine(allCharacter().get(generator).getCharStats()+"\n   Base Damage "+ damageCalc.damageCalc(allCharacter().get(generator)));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            System.out.println("Vallah film heute");
+        }
+        clearScreen();
         System.out.println();
-        System.out.println(allCharacter().get(selectedChar).getCharStats()+"\nChoose Action \n 1 = Attack\n 2 = Use Potion\n 3 = Show inventory\n 4 = Change Weapon\n 5 = Forfeit");
+        System.out.println(allCharacter().get(selectedChar).getCharStats()+"\n   Base Damage "+ damageCalc.damageCalc(allCharacter().get(selectedChar))+"\nChoose Action \n 1 = Attack\n 2 = Use Potion\n 3 = Show inventory\n 4 = Change Weapon\n 5 = Drop Something \n 6 = Forfeit");
     }
     public static void actionRepeater(int selectedChar){
-        System.out.println(allCharacter().get(selectedChar).getCharStats()+"\n");
-        System.out.println("Choose Action \n 1 = Attack\n 2 = Use Potion\n 3 = Show inventory\n 4 = Change Weapon\n 5 = Forfeit");
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            System.out.println("Vallah film heute");
+        }
+        clearScreen();
+        System.out.println(allCharacter().get(selectedChar).getCharStats()+"\n   Base Damage "+ damageCalc.damageCalc(allCharacter().get(selectedChar))+"\nChoose Action \n 1 = Attack\n 2 = Use Potion\n 3 = Show inventory\n 4 = Change Weapon\n 5 = Drop Something \n 6 = Forfeit");
     }
 
 
@@ -55,11 +108,17 @@ public class Game {
         System.out.println(allCharacter().get(generator).getCharStats()+"\n");
         Random random = new Random();
         int action = random.nextInt(2);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            System.out.println("Vallah film heute");
+        }
+        clearScreen();
         switch (action){
             case 0:
                 System.out.println("\nU got Attacked");
                 logger.fine("\nU got Attacked");
-                hpUpdater.updateHP(damageCalc.damageCalc(allCharacter().get(generator)), selectedChar);
+                hpUpdater.updateHP(damageCalc.damageCalc(allCharacter().get(generator)), selectedChar,generator);
                 if (allCharacter().get(selectedChar).gethP() <= 0){
                     System.out.println("\nU LOST");
                     logger.fine("\nU LOST");
@@ -71,9 +130,14 @@ public class Game {
                 actionRepeater(selectedChar);
                 break;
             case 1:
-                int randomPotion = random.nextInt(allPotions().size());
-                potionsSorter(allPotions().get(randomPotion),generator);
-                actionRepeater(selectedChar);
+                if (counter != 2) {
+                    int randomPotion = random.nextInt(allPotions().size());
+                    potionsSorter(allPotions().get(randomPotion), generator);
+                    actionRepeater(selectedChar);
+                    counter++;
+                }else {
+                    bossAttack(selectedChar,generator);
+                }
                 break;
         }
     }
@@ -81,13 +145,19 @@ public class Game {
     public static void action(int selectedChar, int selectedAction, int generator){
         switch (selectedAction){
             case 1:
-                hpUpdater.updateBossHP(damageCalc.damageCalc(allCharacter().get(selectedChar)), generator);
+                clearScreen();
+                hpUpdater.updateBossHP(damageCalc.damageCalc(allCharacter().get(selectedChar)), generator,selectedChar);
                 logger.fine("Attack");
                 if (allCharacter().get(generator).gethP() <= 0){
                     System.out.println("U won");
                     logger.fine("U won");
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        System.out.println("Vallah film heute");
+                    }
+                    clearScreen();
                     wonOrLose = true;
-                    bossFight = false;
                     break;
                 }else {
                     System.out.println("Boss New HP" + allCharacter().get(generator).gethP());
@@ -96,6 +166,7 @@ public class Game {
                 bossAttack(selectedChar,generator);
                 break;
             case 2:
+                clearScreen();
                 for (int i = 0; i < allPotions().size(); i++) {
                     for (int j = 0; j < inv.size(); j++) {
                         if (allPotions().get(i).getName().equals(inv.get(j).getName())) {
@@ -112,25 +183,33 @@ public class Game {
                 actionRepeater(selectedChar);
                 break;
             case 3:
-                System.out.println("Name Weight Amount");
-                for (int i = 0; i < inv.size(); i++) {
-                    System.out.println(inv.get(i).getName()+" "+inv.get(i).getWeight()+" "+ ((Usables)inv.get(i)).getAmount());
-                }
+                clearScreen();
+                System.out.println("Name Weight");
+                inv.forEach(inv -> System.out.println(inv.getName()+" "+ inv.getWeight()));
                 System.out.println(allCharacter().get(selectedChar).getWeapon().getName());
                 actionRepeater(selectedChar);
                 break;
             case 4:
+                clearScreen();
                 System.out.println("Which Weapon do u wanna Equip");
+                inv.stream()
+                        .
                 for (int i = 0; i < inv.size(); i++) {
                     if (inv.get(i) instanceof Weapons){
                         System.out.println(i+" = "+inv.get(i).getName());
+
                     }
                     changingWeapon = true;
                 }
 
                 break;
-
             case 5:
+                clearScreen();
+                removing = true;
+                break;
+
+            case 6:
+                clearScreen();
                 logger.fine("Forfeit");
                 System.out.println("Never Back down never What");
                 actionRepeater(selectedChar);

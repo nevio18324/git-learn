@@ -2,6 +2,8 @@ package RP.CharactersRP;
 
 import RP.ItemsRP.WeaponsRP.Weapons;
 
+import java.util.ArrayList;
+
 public class Characters {
     String name;
     double hP;
@@ -67,7 +69,13 @@ public class Characters {
         this.hitBox = hitBox;
     }
     public String getCharStats(){
-        return name+"\nSTATS\n   HP: "+ hP +" \n   Carryweight: "+carryWeight+" \n   Hitbox: "+hitBox+"\n   Damage: "+ weapon.getDamage();
+        return name+"\nSTATS\n   HP: "+ hP +" \n   Carryweight: "+carryWeight+" \n   Hitbox: "+hitBox;
+    }
+    public ArrayList<Characters> AllCharacter(){
+        ArrayList<Characters> allChars = new ArrayList<>();
+        allChars.add(this);
+        System.out.println("afaf");
+        return allChars;
     }
 }
 

@@ -5,6 +5,8 @@ import RP.ItemsRP.UsablesRP.RingsRP.ProtectionRing;
 import RP.ItemsRP.UsablesRP.RingsRP.Rings;
 import RP.ItemsRP.UsablesRP.Usables;
 import RP.ItemsRP.WeaponsRP.CloseRangeRP.Banana.DodgeBanana;
+import RP.ItemsRP.WeaponsRP.CloseRangeRP.Banana.LifeStealBanana;
+import RP.ItemsRP.WeaponsRP.CloseRangeRP.CloseRange;
 
 import java.util.Random;
 
@@ -16,12 +18,13 @@ public class HPUpdater {
     static Random rand = new Random();
 
 
-    public void updateHP(double damage, int selectedChar){
+    public void updateHP(double damage, int selectedChar, int generator){
         int chanceOfHit = rand.nextInt(5);
         double newHp = 0;
         if (allCharacter().get(selectedChar).getHitBox()*2 < chanceOfHit) {
             System.out.println("Miss");
             logger.fine("He missed");
+            return;
         }else {
             newHp += damage;
         }
@@ -38,19 +41,33 @@ public class HPUpdater {
                 DodgeBanana dodgeBanana = (DodgeBanana) allCharacter().get(selectedChar).getWeapon();
                 if (dodgeBanana.getAmount() >= chanceOfDodge){
                     System.out.println("Dodged");
-                    newHp = 0;
                     logger.fine("U dodged");
+                    return;
                 }
             }
         }
+        if (allCharacter().get(generator).getWeapon() instanceof LifeStealBanana){
+            if (allCharacter().get(generator).gethP()+damage/3> allCharacter().get(generator).getMaxHP()){
+                System.out.println("Boss Healed by "+ (allCharacter().get(generator).getMaxHP()-allCharacter().get(generator).gethP()));
+                allCharacter().get(generator).sethP(allCharacter().get(generator).getMaxHP());
+            }else {
+                System.out.println("Boss Healed by "+ damage/3);
+                allCharacter().get(generator).sethP(allCharacter().get(generator).gethP() + damage/3);
+            }
+        }
+        if (allCharacter().get(selectedChar).getWeapon() instanceof CloseRange){
+            CloseRange closeRange = (CloseRange) allCharacter().get(selectedChar).getWeapon();
+            newHp -= closeRange.getAdditionalDefense();
+        }
         allCharacter().get(selectedChar).sethP(allCharacter().get(selectedChar).gethP()-newHp);
     }
-    public void updateBossHP(double damage, int generator){
+    public void updateBossHP(double damage, int generator,int selectedChar){
         int chanceOfHit = rand.nextInt(5);
         double newHp = 0;
         if (allCharacter().get(generator).getHitBox()*2 < chanceOfHit) {
             System.out.println("Miss");
             logger.fine("U missed");
+            return;
         }else {
             newHp += damage;
         }
@@ -60,9 +77,18 @@ public class HPUpdater {
                 DodgeBanana dodgeBanana = (DodgeBanana) allCharacter().get(generator).getWeapon();
                 if (dodgeBanana.getAmount() >= chanceOfDodge){
                     System.out.println("Dodged\n");
-                    newHp = 0;
                     logger.fine("He dodged");
+                    return;
                 }
+            }
+        }
+        if (allCharacter().get(selectedChar).getWeapon() instanceof LifeStealBanana){
+            if (allCharacter().get(selectedChar).gethP()+damage/3> allCharacter().get(selectedChar).getMaxHP()){
+                System.out.println("U Healed by "+ (allCharacter().get(selectedChar).getMaxHP()-allCharacter().get(selectedChar).gethP()));
+                allCharacter().get(selectedChar).sethP(allCharacter().get(selectedChar).getMaxHP());
+            }else {
+                System.out.println("U Healed by "+ damage/3);
+                allCharacter().get(selectedChar).sethP(allCharacter().get(selectedChar).gethP() + damage/3);
             }
         }
         allCharacter().get(generator).sethP(allCharacter().get(generator).gethP()-newHp);
