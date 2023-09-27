@@ -1,4 +1,5 @@
 package RP;
+import RP.ItemsRP.ArmorRP.Armor;
 import RP.ItemsRP.Items;
 import RP.ItemsRP.UsablesRP.RingsRP.StrenghRing;
 import RP.ItemsRP.UsablesRP.Usables;
@@ -12,34 +13,29 @@ import static RP.Definer.*;
 
 public class  Inventory{
     static List <Items> inv = new ArrayList<>();
-
-    public static void invAdder(Items item, int selectedChar){
+    public static void invAdder(Items item, int selectedChar) {
+        if (item == null){
+            return;
+        }
         int weight = 0;
+        if (allCharacter().get(selectedChar).getArmor() != null) {
+            weight += allCharacter().get(selectedChar).getArmor().getWeight();
+        }
         for (int i = 0; i < inv.size(); i++) {
             weight += inv.get(i).getWeight();
-            if (inv.get(i) instanceof StrenghRing){
+            if (inv.get(i) instanceof StrenghRing) {
                 weight -= ((StrenghRing) inv.get(i)).getAmount();
             }
         }
-        if (item instanceof Weapons){
-                weight += item.getWeight();
-                if (weight > allCharacter().get(selectedChar).getCarryWeight()){
-                    System.out.println("Inv full");
-                    removing = true;
-                }else {
-                    inv.add(item);
-                    removing = false;
-                }
-            }
-        else if (item instanceof Usables) {
-            weight += item.getWeight();
-            if (weight > allCharacter().get(selectedChar).getCarryWeight()) {
-                System.out.println("Inv full wanna Drop something\n y = yes\n n = no");
-                removing = true;
-            } else {
-                inv.add(item);
-                removing = false;
-            }
+
+        int characterCarryWeight = allCharacter().get(selectedChar).getCarryWeight();
+        int newWeight = weight + item.getWeight();
+        if (newWeight <= characterCarryWeight) {
+            inv.add(item);
+            removing = false;
+        } else {
+            System.out.println("Inventory full. Cannot add item.");
+            removing = true;
         }
     }
     public static void invRemover(int selectedChar){
@@ -60,5 +56,16 @@ public class  Inventory{
         logger.fine(allCharacter().get(selectedChar).getWeapon().getName()+" got removed");
         allCharacter().get(selectedChar).setWeapon(null);
         invAdder(items,selectedChar);
+    }
+    public static void armorEquiper(int selectedArmor,int selectedChar){
+        if (inv.get(selectedArmor) == null){
+        if (inv.get(selectedArmor).equals(allCharacter().get(selectedChar).getArmor())) {
+            allCharacter().get(selectedChar).setArmor(null);
+            System.out.println(inv.get(selectedArmor).getName() + " Is now Unequiped  ");
+        }
+        }else {
+            allCharacter().get(selectedChar).setArmor((Armor) inv.get(selectedArmor));
+            System.out.println(inv.get(selectedArmor).getName()+" Is now Equiped  ");
+        }
     }
 }    

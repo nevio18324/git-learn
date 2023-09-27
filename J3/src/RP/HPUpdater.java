@@ -46,6 +46,9 @@ public class HPUpdater {
                 }
             }
         }
+        if (allCharacter().get(selectedChar).getArmor() != null){
+            newHp-= allCharacter().get(selectedChar).getArmor().getAdditionalDefense();
+        }
         if (allCharacter().get(generator).getWeapon() instanceof LifeStealBanana){
             if (allCharacter().get(generator).gethP()+damage/3> allCharacter().get(generator).getMaxHP()){
                 System.out.println("Boss Healed by "+ (allCharacter().get(generator).getMaxHP()-allCharacter().get(generator).gethP()));
@@ -71,6 +74,10 @@ public class HPUpdater {
         }else {
             newHp += damage;
         }
+        if (allCharacter().get(generator).getHitBox()*2 == 6&& allCharacter().get(generator).getHitBox()*3 -6 < chanceOfHit){
+            newHp += damage;
+            System.out.println("Crit Double Damage");
+        }
         if (allCharacter().get(generator) instanceof Monkey){
             if (allCharacter().get(generator).getWeapon() instanceof DodgeBanana){
                 int chanceOfDodge = rand.nextInt(100);
@@ -81,6 +88,9 @@ public class HPUpdater {
                     return;
                 }
             }
+        }
+        if (allCharacter().get(generator).getArmor() != null){
+            newHp-= allCharacter().get(generator).getArmor().getAdditionalDefense();
         }
         if (allCharacter().get(selectedChar).getWeapon() instanceof LifeStealBanana){
             if (allCharacter().get(selectedChar).gethP()+damage/3> allCharacter().get(selectedChar).getMaxHP()){

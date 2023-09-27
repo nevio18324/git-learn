@@ -9,4 +9,8 @@ public class ElfMagic{
     public int getEffect() {
         return effect;
     }
+
+    public void setEffect(int effect) {
+        this.effect = effect;
+    }
 }

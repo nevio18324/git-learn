@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
+import java.util.logging.*;
 
 import static RP.Definer.*;
 import static RP.Game.*;
@@ -51,9 +49,9 @@ public class Main {
         Random rand = new Random();
         for (int i = 0; i < 100; i++) {
             running = true;
-            int generator = rand.nextInt(5);
+            int generator = rand.nextInt(6);
             while (running) {
-                generator = rand.nextInt(5);
+                generator = rand.nextInt(6);
                 if (generator != selectedChar) {
                     break;
                 }
@@ -71,6 +69,18 @@ public class Main {
                     }
                 }
                 action(selectedChar, selectedAction, generator);
+
+
+
+
+
+
+
+
+
+
+
+
                 while (changingWeapon) {
                     int weaponToEquip = 0;
                     while (running) {
@@ -85,38 +95,107 @@ public class Main {
                     actionRepeater(selectedChar);
                     changingWeapon = false;
                 }
+
+
+
+
+
+
+
+
+
                 int selectedPotion = 0;
                 while (usingPotions) {
                     while (running) {
+                        System.out.println("Exit to quit");
                         String checker = scanner.nextLine();
+                        if (checker.equalsIgnoreCase("exit")){
+                            running = false;
+                            break;
+                        }
                         selectedPotion = scannerChecker(selectedPotion, "\\D", checker);
                         if (selectedPotion != -1) {
                             break;
                         }
                     }
-                    potionsSorter((Potions) inv.get(selectedPotion), selectedChar);
-                    inv.remove(selectedPotion);
-                    bossAttack(selectedChar, generator);
-                }
-                Items toAdd = null;
-                if (!(allCharacter().get(selectedChar) instanceof Monkey)) {
-                    while (wonOrLose) {
-                        toAdd = reward(selectedChar);
-                        int selectedOption = 0;
-                        while (!running) {
-                            String proof = scanner.nextLine();
-                            selectedOption = scannerChecker(selectedOption, "\\D", proof);
-                            if (selectedOption != -1) {
-                                break;
-                            }
-                        }
-                        game.addingOrNot(toAdd, selectedOption);
-                        if (!removing){
-                            bossFight = false;
-                        }
+                    if (!running){
+                        running = true;
+                        usingPotions = false;
                         break;
                     }
+                    potionsSorter((Potions) inv.get(selectedPotion), selectedChar);
+                    inv.remove(selectedPotion);
+                    bossStats(selectedChar, generator);
                 }
+                int selectedOption = -1;
+                Items toAdd = null;
+
+
+
+
+
+
+
+
+
+
+                int selectedArmor = 0;
+                while (changingArmor){
+                    while (running){
+                        System.out.println("Exit to quit");
+                        String checker = scanner.nextLine();
+                        if (checker.equalsIgnoreCase("exit")){
+                            running = false;
+                            break;
+                        }
+                        selectedArmor = scannerChecker(selectedArmor,"\\D",checker);
+                        if (selectedArmor == -1){
+                            System.out.println("Invalid");
+                        }else {
+                            break;
+                        }
+                    }
+                    if (!running){
+                        running = true;
+                        changingArmor = false;
+                        break;
+                    }
+                    armorEquiper(selectedArmor,selectedChar);
+                    actionRepeater(selectedChar);
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                while (wonOrLose) {
+                    if (allCharacter().get(selectedChar) instanceof Monkey){
+                        break;
+                    }
+                    toAdd = reward(selectedChar);
+                    while (running) {
+                        String proof = scanner.nextLine();
+                        selectedOption = scannerChecker(selectedOption, "[1-2]", proof);
+                        if (selectedOption != -1) {
+                            break;
+                        }
+                    }
+                    break;
+                }
+                game.addingOrNot(toAdd, selectedOption,selectedChar);
                 while (removing) {
                     System.out.println("Wanna Drop something\n y = yes n = no\n");
                     String action = scanner.nextLine();
@@ -128,11 +207,20 @@ public class Main {
                             int itemToRemove = 0;
                             String proof = "";
                             while (running) {
+                                System.out.println("Exit to quit");
                                 proof = scanner.nextLine();
+                                if (proof.equalsIgnoreCase("Exit")){
+                                    running = false;
+                                    break;
+                                }
                                 itemToRemove = scannerChecker(itemToRemove, "[0-" + inv.size() + "]", proof);
                                 if (itemToRemove != -1) {
                                     break;
                                 }
+                            }
+                            if (!running){
+                                running = true;
+                                break;
                             }
                             removeItem(toAdd, selectedChar, itemToRemove);
                             break;
@@ -143,18 +231,31 @@ public class Main {
                             System.out.println("Invalid");
                     }
                     removing = false;
-                    actionRepeater(selectedChar);
-                    if(wonOrLose){
-                        bossFight = false;
+                    if (!wonOrLose) {
+                        actionRepeater(selectedChar);
                     }
+                }
+                if (wonOrLose) {
+                    bossFight = false;
                 }
             }
             for (int y = 0; y < inv.size(); y++) {
                 logger.fine(inv.get(y).getName());
             }
+            wonOrLose = false;
             endOfRound(generator, selectedChar);
         }
     }
+
+
+
+
+
+
+
+
+
+
 
     public static int scannerChecker(int selectedOption, String regex, String toCheck) {
         if (!(toCheck.matches(regex))) {
