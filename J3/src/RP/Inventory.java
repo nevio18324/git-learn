@@ -58,14 +58,17 @@ public class  Inventory{
         invAdder(items,selectedChar);
     }
     public static void armorEquiper(int selectedArmor,int selectedChar){
-        if (inv.get(selectedArmor) == null){
-        if (inv.get(selectedArmor).equals(allCharacter().get(selectedChar).getArmor())) {
-            allCharacter().get(selectedChar).setArmor(null);
-            System.out.println(inv.get(selectedArmor).getName() + " Is now Unequiped  ");
-        }
+        if (inv.get(selectedArmor) != null) {
+            if (inv.get(selectedArmor).equals(allCharacter().get(selectedChar).getArmor())) {
+                allCharacter().get(selectedChar).setArmor(null);
+                System.out.println(inv.get(selectedArmor).getName() + " Is now Unequiped  ");
+            } else {
+                allCharacter().get(selectedChar).setArmor((Armor) inv.get(selectedArmor));
+                System.out.println(inv.get(selectedArmor).getName() + " Is now Equiped  ");
+            }
         }else {
             allCharacter().get(selectedChar).setArmor((Armor) inv.get(selectedArmor));
-            System.out.println(inv.get(selectedArmor).getName()+" Is now Equiped  ");
+            System.out.println(inv.get(selectedArmor).getName() + " Is now Equiped  ");
         }
     }
 }    

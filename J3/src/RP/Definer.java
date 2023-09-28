@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Random;
 public class Definer {
     public static int round = 0;
+    public static boolean menuActive = true;
     public static boolean changingArmor = false;
     public static boolean changingWeapon = false;
     public static boolean removing = false;
@@ -125,6 +126,22 @@ public class Definer {
         int randomBanana = rand.nextInt(bananaList.size());
         return bananaList.get(randomBanana);
     }
+    public static String sword() {
+        String sword = "" +
+                "            ()\n" +
+                "            )(\n" +
+                "         o======o\n" +
+                "            ||    The Sword in The (Mythical) Stone\n" +
+                "            ||\n" +
+                "            ||";
+        return sword;
+    }
+    public static String stone =
+            "\n       ,c88888888b\n" +
+            "      ,88888888888b\n" +
+            "      88888888888Y\"\n" +
+            ",,;,,;;\"Y888888Y\",,,,,,,;;,;";
+    public static int count = 0;
 }
 
 

@@ -21,10 +21,89 @@ import static RP.Main.clearScreen;
 import static RP.Main.logger;
 
 public class Game {
+    public static String sword = sword();
+    public static void menu(){
+        System.out.println("""
+                 _ __ ___   ___ _ __  _   _\s
+                | '_ ` _ \\ / _ \\ '_ \\| | | |
+                | | | | | |  __/ | | | |_| |
+                |_| |_| |_|\\___|_| |_|\\__,_|\n\n
+              
+                1 = Start Fight                                            
+                                                                             
+                2 = Spam to pull the sword out
+                                            
+                3 = Exit Game(Ur life will be Meaningless)                   
+                                                                             
+                4 = Read Rules                                         
+                                                                                                   
+                """+sword+stone);
+    }
+    public static void menuAction(String action){
+        switch (action){
+            case "1":
+                charSelection();
+                menuActive = false;
+                break;
+            case "2":
+                clearScreen();
+                count++;
+                sword += "\n            ||";
+                if (count == 9){
+                    sword += "\n            |/";
+                }
+                if (count == 10){
+                    clearScreen();
+                    System.out.println("One must imagine sisyphus happy");
+                    System.out.println("\n" +
+                            "      ,-'\"\"\"`-.\n" +
+                            "    ,'         `.\n" +
+                            "   /        `    \\\n" +
+                            "  (    /          )\n" +
+                            "  |             \" |\n" +
+                            "  (               )\n" +
+                            " `.\\\\          \\ /\n" +
+                            "   `:.     , \\ ,\\ _\n" +
+                            "     `:-.___,-`-.{\\)\n" +
+                            "       `.        |/ \\\n" +
+                            "         `.        \\ \\\n" +
+                            "           `-.     _\\,)\n" +
+                            "              `.  |,-||\n" +
+                            "                `.|| ||\n");
+                    count = 0;
+                    sword = sword();
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        System.out.println("Vallah film heute");
+                    }
+                }
+                clearScreen();
+                break;
+            case "3":
+                clearScreen();
+                System.out.println("Theres No Leaving u Twat");
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    System.out.println("Vallah film heute");
+                }
+                break;
+            case "4":
+                clearScreen();
+                rules();
+                menuActive = false;
+            default:
+                System.out.println("Invalid");
+                break;
+        }
+    }
     public static void rules() {
-        System.out.println("    Dwarf Damage Calculation :\n" +
+        System.out.println(
+                "    Dwarf Damage Calculation :\n" +
                 "        Damage is calculated based on the character's weapon and a random factor.\n" +
                 "        The damage is a random value between 90% and 110% of the character's weapon damage.\n" +
+                "        The Dwarf can wear any Armor\n" +
                 "\n" +
                 "    Elf Damage Calculation :\n" +
                 "        Damage calculation depends on the Elf's weapon, random factor, and spell.\n" +
@@ -32,33 +111,46 @@ public class Game {
                 "        If the Elf has a bow and a spell, the damage is 150% of the weapon damage plus half of the spell's effect.\n" +
                 "        If the Elf has any other weapon, the damage is a random value between 90% and 110% of the weapon damage.\n" +
                 "        U start with the Elfspell and for each Boss u survive ur spell gains 10 Damage but u cant get Usables only Weapons.\n" +
+                "        The Elf can wear light Armor.\n" +
                 "\n" +
                 "    Goblin Damage Calculation :\n" +
                 "        Damage calculation depends on the character's weapon and a random factor.\n" +
                 "        If the Goblin has a bow, the damage is 150% of the weapon damage.\n" +
                 "        If the Goblin has any other weapon, the damage is a random value between 90% and 110% of the weapon damage.\n" +
+                "        The Goblin can wear light Armor\n" +
                 "\n" +
                 "    Human Damage Calculation :\n" +
                 "        Damage is calculated based on the Human's weapon and a random factor.\n" +
                 "        The damage is a random value between 90% and 110% of the Human's weapon damage.\n" +
+                "        The Human can wear any Armor.\n" +
                 "\n" +
                 "    Monkey Damage Calculation :\n" +
                 "        Damage calculation depends on the character's weapon, random factor, and whether the weapon is a LifeStealBanana.\n" +
                 "        If the Monkey has a LifeStealBanana, it can potentially steal HP from the opponent.\n" +
                 "        If the Monkey has a DodgeBanana, it can potentially Dodge the Enemies attack.\n" +
                 "        The Monkey cannot get any Rewards u get one Banana as a Weapon\n" +
-                "        The Monkey gains HP based on the damage dealt by the weapon.\n" +
+                "        The Monkey gains HP based on the damage dealt by the weapon if u have the LifeSteal Banana.\n" +
                 "        It can't go above his Max HP.\n" +
+                "        The Monkey cant wear Armor.\n" +
                 "\n" +
                 "    Ogre Damage Calculation :\n" +
                 "        Damage calculation depends on the Ogre's weapon, random factor, and current HP.\n" +
                 "        If the Oger's HP is at or below 25% of the maximum HP, the damage is tripled.\n" +
                 "        Otherwise, the damage is a random value between 90% and 110% of the weapon damage.\n" +
+                "        The Ogre can get Critical Damage\n" +
+                "        The Ogre can wear any Armor.\n" +
                 "\n" +
                 "    Troll Damage Calculation :\n" +
                 "        Damage calculation depends on the character's weapon and a random factor.\n" +
                 "        If the Troll has a Club, the damage is doubled.\n" +
-                "        If the Troll has any other weapon, the damage is a random value between 90% and 110% of the weapon damage.");
+                "        If the Troll has any other weapon, the damage is a random value between 90% and 110% of the weapon damage.\n" +
+                "        The Troll cant wear Armor.\n" +
+                "\n"+
+                    "FIGHT RULES\n" +
+                        "The Boss gets an random Weapon.\n" +
+                        "The Boss gets a Random Armor depending on what his Character can Wear.\n" +
+                        "U get Nothing other than ur Startersword.\n" +
+                        "Foreach bossfight u win u will get a random Reward depending on ur Character");
         System.out.println("If u read them press Enter");
     }
 
@@ -73,22 +165,26 @@ public class Game {
 
     public static void fight(int selectedChar, int generator) {
         boolean nonValidArmor = true;
+        counter = 0;
         Random rand = new Random();
         clearScreen();
-        int randomWeapon = rand.nextInt(allWeapons().size());
-        allCharacter().get(generator).setWeapon(allWeapons().get(randomWeapon));
+        if (!(allCharacter().get(generator) instanceof Monkey)) {
+            int randomWeapon = rand.nextInt(allWeapons().size());
+            allCharacter().get(generator).setWeapon(allWeapons().get(randomWeapon));
+        }
         int randomArmor = rand.nextInt(allArmors().size());
-        if (allCharacter().get(generator) instanceof Monkey|| allCharacter().get(generator) instanceof Troll){
-        } else if (allCharacter().get(generator) instanceof Elf || allCharacter().get(generator) instanceof Goblin){
-            while (nonValidArmor){
-                randomArmor = rand.nextInt(allArmors().size());
-                if (allArmors().get(randomArmor) instanceof LightArmor) {
-                    allCharacter().get(generator).setArmor(allArmors().get(randomArmor));
-                    nonValidArmor = false;
+        if (!(allCharacter().get(generator) instanceof Monkey || allCharacter().get(generator) instanceof Troll)) {
+            if (allCharacter().get(generator) instanceof Elf || allCharacter().get(generator) instanceof Goblin) {
+                while (nonValidArmor) {
+                    randomArmor = rand.nextInt(allArmors().size());
+                    if (allArmors().get(randomArmor) instanceof LightArmor) {
+                        allCharacter().get(generator).setArmor(allArmors().get(randomArmor));
+                        nonValidArmor = false;
+                    }
                 }
+            } else {
+                allCharacter().get(generator).setArmor(allArmors().get(randomArmor));
             }
-        }else {
-            allCharacter().get(generator).setArmor(allArmors().get(randomArmor));
         }
         System.out.println(allCharacter().get(generator).getCharStats() + "\n   Base Damage " + damageCalc.damageCalc(allCharacter().get(generator)));
         logger.fine(allCharacter().get(generator).getCharStats() + "\n   Base Damage " + damageCalc.damageCalc(allCharacter().get(generator)));
@@ -113,25 +209,26 @@ public class Game {
     }
 
     public static void bossStats(int selectedChar, int generator) {
-        System.out.println(allCharacter().get(generator).getCharStats() + "\n");
-        bossAttack(selectedChar,generator);
-    }
-    public static void bossAttack(int selectedChar,int generator){
-        Random random = new Random();
-        int action = random.nextInt(2);
-        if (action == 1){
-            if (allCharacter().get(selectedChar).gethP() < damageCalc.damageCalc(allCharacter().get(generator))){
-                action = 0;
-            }
-        }else if (action == 0 && counter != 2&&allCharacter().get(selectedChar).gethP() > damageCalc.damageCalc(allCharacter().get(generator))&&damageCalc.damageCalc(allCharacter().get(selectedChar)) > allCharacter().get(generator).gethP()){
-            action = 1;
-        }else if (action == 0 && counter != 2&&allCharacter().get(selectedChar).gethP() > damageCalc.damageCalc(allCharacter().get(generator))&&damageCalc.damageCalc(allCharacter().get(selectedChar)) > allCharacter().get(generator).gethP()&&allCharacter().get(selectedChar).gethP() < damageCalc.damageCalc(allCharacter().get(generator))){
-            action = 0;
-        }
+        System.out.println(allCharacter().get(generator).getCharStats() + "\n   Base Damage "  + damageCalc.damageCalc(allCharacter().get(generator)));
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             System.out.println("Vallah film heute");
+        }
+        bossAttack(selectedChar, generator);
+    }
+
+    public static void bossAttack(int selectedChar, int generator) {
+        Random random = new Random();
+        int action = random.nextInt(2);
+        if (action == 1) {
+            if (allCharacter().get(selectedChar).gethP() < damageCalc.damageCalc(allCharacter().get(generator))) {
+                action = 0;
+            }
+        } else if (action == 0 && counter != 2 && allCharacter().get(selectedChar).gethP() > damageCalc.damageCalc(allCharacter().get(generator)) && damageCalc.damageCalc(allCharacter().get(selectedChar)) > allCharacter().get(generator).gethP()) {
+            action = 1;
+        } else if (action == 0 && counter != 2 && allCharacter().get(selectedChar).gethP() > damageCalc.damageCalc(allCharacter().get(generator)) && damageCalc.damageCalc(allCharacter().get(selectedChar)) > allCharacter().get(generator).gethP() && allCharacter().get(selectedChar).gethP() < damageCalc.damageCalc(allCharacter().get(generator))) {
+            action = 0;
         }
         round++;
         clearScreen();
@@ -175,11 +272,11 @@ public class Game {
             case 1:
                 if (counter != 2) {
                     int randomPotion = random.nextInt(allPotions().size());
-                    if (damageCalc.damageCalc(allCharacter().get(selectedChar)) > allCharacter().get(generator).gethP()){
+                    if (damageCalc.damageCalc(allCharacter().get(selectedChar)) > allCharacter().get(generator).gethP()) {
                         randomPotion = allPotions().indexOf(healPotions);
                     }
-                    if (randomPotion == allPotions().indexOf(healPotions)){
-                        if (allCharacter().get(generator).gethP() > allCharacter().get(generator).getMaxHP()-allPotions().get(randomPotion).getAmount()){
+                    if (randomPotion == allPotions().indexOf(healPotions)) {
+                        if (allCharacter().get(generator).gethP() > allCharacter().get(generator).getMaxHP() - allPotions().get(randomPotion).getAmount()) {
                             randomPotion = allPotions().indexOf(damagePotions);
                         }
                     }
@@ -265,7 +362,7 @@ public class Game {
                 clearScreen();
                 if (allCharacter().get(selectedChar).getArmor() != null) {
                     System.out.println(allCharacter().get(selectedChar).getArmor().getName());
-                }else {
+                } else {
                     System.out.println("No Armor equiped");
                 }
                 IntStream.range(0, inv.size())
@@ -334,6 +431,9 @@ public class Game {
             randomType = rand.nextInt(2) + 1;
             ((Elf) allCharacter().get(selectedChar)).getSpell().setEffect(((Elf) allCharacter().get(selectedChar)).getSpell().getEffect() + 10);
         }
+        if (allCharacter().get(selectedChar) instanceof Troll) {
+            randomType = rand.nextInt(2);
+        }
         switch (randomType) {
             case 0:
                 int randomItem = rand.nextInt(allItems().size());
@@ -344,22 +444,62 @@ public class Game {
             case 1:
                 int randomWeapon = rand.nextInt(allWeapons().size());
                 allWeapons().get(randomWeapon);
-                if (allWeapons().get(randomWeapon) == allCharacter().get(selectedChar).getWeapon()){
+                if (allWeapons().get(randomWeapon) == allCharacter().get(selectedChar).getWeapon()) {
                     reward(selectedChar);
                 }
+                System.out.println("BIGGER WEAPONS");
+                System.out.println("""
+                        ,*******************************************************************************
+                        ,**************************************************,,,,,,***********************
+                        ,*********************************************.....,,,,,,,,,********************
+                        ,******************************************* ..  ..  .,..,,...,*****************
+                        ,*******************************************        ..,.,......,,***************
+                        ,********************************************. .......     ....,****************
+                        ,*********************************************,.,,,,,,........******************
+                        ,*********************************************..,,,,,,.......*******************
+                        ,*********************************************,.,,,,,,*(*,.,********************
+                        ,************************************************,*(%%%#(/((**/*****************
+                        ,****************************************/(###%%/***,*%%%#####(*****************
+                        ,***********************************/#############*****/###((####*.,************
+                        ,*********************************/#######((/***///..   .*#((((##(**/***********
+                        ,********************************(######((/*,..*//(...*,,,(//(((((,.,,**********
+                        ,*****************************/####%####(//...,,**/*...    *//////,,.,**********
+                        ,**************************/(########((//*....,,,,,,,.     ,,**///....,,********
+                        ,*************************(((((##((///*,......,,,,,...      .,,,...    .********
+                        ,***********************((((((((//*,,...,.....,,,,,,.            ....  .,,******
+                        ,*********************////////*,....,**,,......,,,,.   ...          ......******
+                        ,********************,,,***,,,..**,....,.......,,,.    . ..              .******
+                        ,********************,,...,,...,**,....                                  ,******
+                        ,********************,,,..........,*,.                               ..  *******
+                        ,*********************,,,,,,........ ...                                .*******
+                        ,**********************,,,,..........  .                               .********
+                        ,************************,,.........                                ..,*********
+                        ,************************. ........, .                              ..**********
+                        ,**************************,,.,..,,.....                           ..***********
+                        ,****************************...,,. .                              ,************
+                        ,****************************,......   .                             ***********
+                        ,********************************.... .,                             ***********
+                        ,********************************.......                ,,..          .*********
+                        ,********************************,..                   .,******..  .,,,.********
+                        ,*******************************,    ,*.               ..,,,,,,,*..,,,,,,*******
+                        ,*******************************  ..                   ........,,,.......*******
+                        ,******************************  .,                    ..................,******
+                        ,******************************  ,*..        ..        ........  ..     .,******
+                        ,******************************, **  .    ..,**          ......  ..    ..,******
+                        ,*********************************       .      .,,**,,,,,.........  ....*******
+                        ,********************************.       .   ..    .,****,..,....       ********
+                        """);
                 System.out.println("Do u want this " + allWeapons().get(randomWeapon).getName() + " Damage " + allWeapons().get(randomWeapon).getDamage() + " Weight " + allWeapons().get(randomWeapon).getWeight() + "\n 1 = yes 2 = no");
                 logger.fine("Do u want this " + allWeapons().get(randomWeapon).getName() + " Damage " + allWeapons().get(randomWeapon).getDamage() + " Weight " + allWeapons().get(randomWeapon).getWeight() + "\n 1 = yes 2 = no");
                 return allWeapons().get(randomWeapon);
             case 2:
-                if (allCharacter().get(selectedChar) instanceof Monkey||allCharacter().get(selectedChar) instanceof Troll){
-                    reward(selectedChar);
-                }
+
                 int randomArmor = rand.nextInt(allArmors().size());
                 boolean nonValidArmor = true;
                 while (nonValidArmor) {
                     if (allArmors().get(randomArmor) instanceof HeavyArmor && allCharacter().get(selectedChar) instanceof Elf || allCharacter().get(selectedChar) instanceof Goblin) {
                         randomArmor = rand.nextInt(allArmors().size());
-                    }else {
+                    } else {
                         nonValidArmor = false;
                     }
                 }
@@ -370,13 +510,18 @@ public class Game {
         return null;
     }
 
-    public void addingOrNot(Items item, int selectedAction,int selectedChar) {
+    public void addingOrNot(Items item, int selectedAction, int selectedChar) {
         switch (selectedAction) {
             case 1:
                 if (item instanceof Rings) {
-                    if (allCharacter().get(selectedAction) instanceof Oger) {
+                    if (allCharacter().get(selectedChar) instanceof Oger) {
                         System.out.println("Deine FInger waren zu fett nun hast du einen Finger weniger und kein Ring :(");
-                        allCharacter().get(selectedAction).setMaxHP(allCharacter().get(selectedAction).getMaxHP() - 10);
+                        allCharacter().get(selectedChar).setMaxHP(allCharacter().get(selectedChar).getMaxHP() - 10);
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            System.out.println("Vallah film heute");
+                        }
                         break;
                     }
                 }

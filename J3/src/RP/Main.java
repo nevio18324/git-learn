@@ -30,15 +30,15 @@ public class Main {
             e.printStackTrace();
         }
         Scanner scanner = new Scanner(System.in);
-        rules();
-        scanner.nextLine();
-        clearScreen();
-        charSelection();
+        while (menuActive) {
+            menu();
+            menuAction(scanner.nextLine());
+        }
         int selectedChar = 0;
         boolean running = true;
         while (running) {
             String proof = scanner.nextLine();
-            selectedChar = scannerChecker(selectedChar, "^[0-" + (allCharacter().size() - 1) + "]", proof);
+            selectedChar = scannerChecker(selectedChar, "[0-" + (allCharacter().size() - 1) + "]", proof);
             if (selectedChar != -1) {
                 break;
             }
@@ -49,9 +49,9 @@ public class Main {
         Random rand = new Random();
         for (int i = 0; i < 100; i++) {
             running = true;
-            int generator = rand.nextInt(6);
+            int generator = rand.nextInt(7);
             while (running) {
-                generator = rand.nextInt(6);
+                generator = rand.nextInt(7);
                 if (generator != selectedChar) {
                     break;
                 }
@@ -113,7 +113,7 @@ public class Main {
                             running = false;
                             break;
                         }
-                        selectedPotion = scannerChecker(selectedPotion, "\\D", checker);
+                        selectedPotion = scannerChecker(selectedPotion, "[0-" + inv.size() + "]", checker);
                         if (selectedPotion != -1) {
                             break;
                         }
@@ -140,29 +140,38 @@ public class Main {
 
 
                 int selectedArmor = 0;
-                while (changingArmor){
-                    while (running){
+                while (changingArmor) {
+                    while (running) {
                         System.out.println("Exit to quit");
                         String checker = scanner.nextLine();
-                        if (checker.equalsIgnoreCase("exit")){
+                        if (checker.equalsIgnoreCase("exit")) {
                             running = false;
                             break;
                         }
-                        selectedArmor = scannerChecker(selectedArmor,"\\D",checker);
-                        if (selectedArmor == -1){
+                        selectedArmor = scannerChecker(selectedArmor, "[0-" + inv.size() + "]", checker);
+                        if (selectedArmor == -1) {
                             System.out.println("Invalid");
-                        }else {
+                        } else {
                             break;
                         }
                     }
-                    if (!running){
+                    if (!running) {
                         running = true;
                         changingArmor = false;
+                        actionRepeater(selectedChar);
                         break;
                     }
                     armorEquiper(selectedArmor,selectedChar);
+                    try {
+                        Thread.sleep(1500);
+                    } catch (InterruptedException e) {
+                        System.out.println("Vallah film heute");
+                    }
+                    clearScreen();
                     actionRepeater(selectedChar);
+                    changingArmor = false;
                 }
+
 
 
 
@@ -205,10 +214,9 @@ public class Main {
                             invRemover(selectedChar);
                             running = true;
                             int itemToRemove = 0;
-                            String proof = "";
                             while (running) {
                                 System.out.println("Exit to quit");
-                                proof = scanner.nextLine();
+                                String proof = scanner.nextLine();
                                 if (proof.equalsIgnoreCase("Exit")){
                                     running = false;
                                     break;
