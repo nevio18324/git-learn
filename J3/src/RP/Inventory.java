@@ -51,12 +51,7 @@ public class  Inventory{
         inv.remove(itemToRemove);
         invAdder(items,selectedChar);
     }
-    public static void weaponRemover(Items items, int selectedChar){
-        System.out.println(allCharacter().get(selectedChar).getWeapon().getName()+" got removed");
-        logger.fine(allCharacter().get(selectedChar).getWeapon().getName()+" got removed");
-        allCharacter().get(selectedChar).setWeapon(null);
-        invAdder(items,selectedChar);
-    }
+
     public static void armorEquiper(int selectedArmor,int selectedChar){
         if (inv.get(selectedArmor) != null) {
             if (inv.get(selectedArmor).equals(allCharacter().get(selectedChar).getArmor())) {

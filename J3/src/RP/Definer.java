@@ -16,11 +16,11 @@ import java.util.List;
 import java.util.Random;
 public class Definer {
     public static int round = 0;
+    public static boolean excaliburPulled = false;
     public static boolean menuActive = true;
     public static boolean changingArmor = false;
     public static boolean changingWeapon = false;
     public static boolean removing = false;
-    public static int difficulty = 0;
     public static int counter = 0;
     public static boolean usingPotions = false;
     public static boolean bossFight = true;
@@ -61,7 +61,7 @@ public class Definer {
         return allChars;
     }
 
-
+    public static LongSword excalibur = new LongSword("Excalibur",1,2000000,2000000,2000000);
     public static Glock glock = new Glock("Ratatata Glock", 12, 45, 45);
     public static StarterWeapon starterWeapon = new StarterWeapon("Shitty Sword", 15, 40, 40, 4);
     public static LongSword longSword = new LongSword("Kurzes Lang Schwert", 30, 55, 55, 5);

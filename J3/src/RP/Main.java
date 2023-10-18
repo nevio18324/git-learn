@@ -8,7 +8,6 @@ import RP.ItemsRP.WeaponsRP.Weapons;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.logging.FileHandler;
 import java.util.logging.*;
 
 import static RP.Definer.*;
@@ -20,6 +19,9 @@ public class Main {
     public static Logger logger = Logger.getLogger(Game.class.getName());
 
     public static void main(String[] args) {
+        inv.add(healPotions);
+        inv.add(ogersRing);
+        inv.add(bow);
         try {
             FileHandler fileHandler = new FileHandler("mylog.log");
             logger.addHandler(fileHandler);
@@ -48,7 +50,6 @@ public class Main {
         clearScreen();
         Random rand = new Random();
         for (int i = 0; i < 100; i++) {
-            running = true;
             int generator = rand.nextInt(7);
             while (running) {
                 generator = rand.nextInt(7);
@@ -56,7 +57,6 @@ public class Main {
                     break;
                 }
             }
-            difficulty++;
             fight(selectedChar, generator);
             int selectedAction = 0;
             bossFight = true;
@@ -69,18 +69,6 @@ public class Main {
                     }
                 }
                 action(selectedChar, selectedAction, generator);
-
-
-
-
-
-
-
-
-
-
-
-
                 while (changingWeapon) {
                     int weaponToEquip = 0;
                     while (running) {
@@ -95,15 +83,6 @@ public class Main {
                     actionRepeater(selectedChar);
                     changingWeapon = false;
                 }
-
-
-
-
-
-
-
-
-
                 int selectedPotion = 0;
                 while (usingPotions) {
                     while (running) {
@@ -129,16 +108,6 @@ public class Main {
                 }
                 int selectedOption = -1;
                 Items toAdd = null;
-
-
-
-
-
-
-
-
-
-
                 int selectedArmor = 0;
                 while (changingArmor) {
                     while (running) {
@@ -171,25 +140,6 @@ public class Main {
                     actionRepeater(selectedChar);
                     changingArmor = false;
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 while (wonOrLose) {
                     if (allCharacter().get(selectedChar) instanceof Monkey){
                         break;

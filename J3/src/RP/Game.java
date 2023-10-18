@@ -1,43 +1,56 @@
 package RP;
 
 import RP.CharactersRP.*;
-import RP.ItemsRP.ArmorRP.Armor;
-import RP.ItemsRP.ArmorRP.HeavyArmor;
-import RP.ItemsRP.ArmorRP.LightArmor;
+import RP.ItemsRP.ArmorRP.*;
 import RP.ItemsRP.Items;
-import RP.ItemsRP.UsablesRP.PotionsRP.DamagePotion;
-import RP.ItemsRP.UsablesRP.PotionsRP.HealPotion;
-import RP.ItemsRP.UsablesRP.PotionsRP.Potions;
+import RP.ItemsRP.UsablesRP.PotionsRP.*;
 import RP.ItemsRP.UsablesRP.RingsRP.Rings;
 import RP.ItemsRP.WeaponsRP.Weapons;
 
 import java.util.Random;
+import java.util.Scanner;
 import java.util.stream.IntStream;
 
 import static RP.Definer.*;
-import static RP.Inventory.inv;
-import static RP.Inventory.invAdder;
+import static RP.Inventory.*;
 import static RP.Main.clearScreen;
 import static RP.Main.logger;
 
 public class Game {
     public static String sword = sword();
     public static void menu(){
-        System.out.println("""
-                 _ __ ___   ___ _ __  _   _\s
-                | '_ ` _ \\ / _ \\ '_ \\| | | |
-                | | | | | |  __/ | | | |_| |
-                |_| |_| |_|\\___|_| |_|\\__,_|\n\n
-              
-                1 = Start Fight                                            
-                                                                             
-                2 = Spam to pull the sword out
-                                            
-                3 = Exit Game(Ur life will be Meaningless)                   
-                                                                             
-                4 = Read Rules                                         
-                                                                                                   
-                """+sword+stone);
+        if (!excaliburPulled) {
+            System.out.println("""
+                     _ __ ___   ___ _ __  _   _\s
+                    | '_ ` _ \\ / _ \\ '_ \\| | | |
+                    | | | | | |  __/ | | | |_| |
+                    |_| |_| |_|\\___|_| |_|\\__,_|\n\n
+                                  
+                    1 = Start Fight                                            
+                                                                                 
+                    2 = Spam to pull the sword out
+                                                
+                    3 = Exit Game(Ur life will be Meaningless)                   
+                                                                                 
+                    4 = Read Rules                                         
+                                                                                                       
+                    """ + sword + stone);
+        }
+        else {
+            System.out.println("""
+                     _ __ ___   ___ _ __  _   _\s
+                    | '_ ` _ \\ / _ \\ '_ \\| | | |
+                    | | | | | |  __/ | | | |_| |
+                    |_| |_| |_|\\___|_| |_|\\__,_|\n\n
+                                  
+                    1 = Start Fight                                            
+                                                                                                                                 
+                    3 = Exit Game(Ur life will be Meaningless)                   
+                                                                                 
+                    4 = Read Rules                                         
+                                                                                                       
+                    """ + sword +"\n\n\n\n"+ stone);
+        }
     }
     public static void menuAction(String action){
         switch (action){
@@ -49,10 +62,23 @@ public class Game {
                 clearScreen();
                 count++;
                 sword += "\n            ||";
-                if (count == 9){
+
+                if (count %10 == 9){
                     sword += "\n            |/";
                 }
-                if (count == 10){
+                if (count == 199){
+                    clearScreen();
+                    excaliburPulled = true;
+                    System.out.println("Sisyphus is finally Happy");
+                    System.out.println(sword);
+                    System.out.println("U got the Escalibur");
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        System.out.println("Vallah film heute");
+                    }
+                }
+                if (count  %10 == 0&& !(count >= 199)){
                     clearScreen();
                     System.out.println("One must imagine sisyphus happy");
                     System.out.println("\n" +
@@ -70,23 +96,23 @@ public class Game {
                             "           `-.     _\\,)\n" +
                             "              `.  |,-||\n" +
                             "                `.|| ||\n");
-                    count = 0;
                     sword = sword();
                     try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {
-                        System.out.println("Vallah film heute");
+                        System.out.println("ERROR");
                     }
+
                 }
                 clearScreen();
                 break;
             case "3":
                 clearScreen();
-                System.out.println("Theres No Leaving u Twat");
+                System.out.println("Theres No Leaving");
                 try {
                     Thread.sleep(1500);
                 } catch (InterruptedException e) {
-                    System.out.println("Vallah film heute");
+                    System.out.println("ERROR");
                 }
                 break;
             case "4":
@@ -152,6 +178,8 @@ public class Game {
                         "U get Nothing other than ur Startersword.\n" +
                         "Foreach bossfight u win u will get a random Reward depending on ur Character");
         System.out.println("If u read them press Enter");
+        Scanner scanner = new Scanner(System.in);
+        String ja = scanner.nextLine();
     }
 
 
@@ -172,6 +200,10 @@ public class Game {
             int randomWeapon = rand.nextInt(allWeapons().size());
             allCharacter().get(generator).setWeapon(allWeapons().get(randomWeapon));
         }
+        if (excaliburPulled) {
+            allCharacter().get(selectedChar).setWeapon(excalibur);
+            inv.add(excalibur);
+        }
         int randomArmor = rand.nextInt(allArmors().size());
         if (!(allCharacter().get(generator) instanceof Monkey || allCharacter().get(generator) instanceof Troll)) {
             if (allCharacter().get(generator) instanceof Elf || allCharacter().get(generator) instanceof Goblin) {
@@ -191,18 +223,25 @@ public class Game {
         try {
             Thread.sleep(1500);
         } catch (InterruptedException e) {
-            System.out.println("Vallah film heute");
+            System.out.println("ERROR");
         }
         clearScreen();
-        System.out.println();
-        System.out.println("Runde " + round + "\n" + allCharacter().get(selectedChar).getCharStats() + "\n   Base Damage " + damageCalc.damageCalc(allCharacter().get(selectedChar)) + "\nChoose Action \n 1 = Attack\n 2 = Use Potion\n 3 = Show inventory\n 4 = Change Weapon\n 5 = Drop Something \n 6 = Unequip or Equip Armor \n 7 = Forfeit");
+        whoStarts(generator,selectedChar);
+    }
+
+    public static void whoStarts(int generator, int selectedChar){
+        if (allCharacter().get(selectedChar).getHitBox() > allCharacter().get(generator).getHitBox()){
+            actionRepeater(selectedChar);
+        }else {
+            bossStats(selectedChar,generator);
+        }
     }
 
     public static void actionRepeater(int selectedChar) {
         try {
             Thread.sleep(1500);
         } catch (InterruptedException e) {
-            System.out.println("Vallah film heute");
+            System.out.println("ERROR");
         }
         clearScreen();
         System.out.println("Runde " + round + "\n" + allCharacter().get(selectedChar).getCharStats() + "\n   Base Damage " + damageCalc.damageCalc(allCharacter().get(selectedChar)) + "\nChoose Action \n 1 = Attack\n 2 = Use Potion\n 3 = Show inventory\n 4 = Change Weapon\n 5 = Drop Something \n 6 = Unequip or Equip Armor \n 7 = Forfeit");
@@ -213,7 +252,7 @@ public class Game {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
-            System.out.println("Vallah film heute");
+            System.out.println("ERROR");
         }
         bossAttack(selectedChar, generator);
     }
@@ -309,7 +348,7 @@ public class Game {
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
-                        System.out.println("Vallah film heute");
+                        System.out.println("ERROR");
                     }
                     clearScreen();
                     wonOrLose = true;
@@ -447,53 +486,10 @@ public class Game {
                 if (allWeapons().get(randomWeapon) == allCharacter().get(selectedChar).getWeapon()) {
                     reward(selectedChar);
                 }
-                System.out.println("BIGGER WEAPONS");
-                System.out.println("""
-                        ,*******************************************************************************
-                        ,**************************************************,,,,,,***********************
-                        ,*********************************************.....,,,,,,,,,********************
-                        ,******************************************* ..  ..  .,..,,...,*****************
-                        ,*******************************************        ..,.,......,,***************
-                        ,********************************************. .......     ....,****************
-                        ,*********************************************,.,,,,,,........******************
-                        ,*********************************************..,,,,,,.......*******************
-                        ,*********************************************,.,,,,,,*(*,.,********************
-                        ,************************************************,*(%%%#(/((**/*****************
-                        ,****************************************/(###%%/***,*%%%#####(*****************
-                        ,***********************************/#############*****/###((####*.,************
-                        ,*********************************/#######((/***///..   .*#((((##(**/***********
-                        ,********************************(######((/*,..*//(...*,,,(//(((((,.,,**********
-                        ,*****************************/####%####(//...,,**/*...    *//////,,.,**********
-                        ,**************************/(########((//*....,,,,,,,.     ,,**///....,,********
-                        ,*************************(((((##((///*,......,,,,,...      .,,,...    .********
-                        ,***********************((((((((//*,,...,.....,,,,,,.            ....  .,,******
-                        ,*********************////////*,....,**,,......,,,,.   ...          ......******
-                        ,********************,,,***,,,..**,....,.......,,,.    . ..              .******
-                        ,********************,,...,,...,**,....                                  ,******
-                        ,********************,,,..........,*,.                               ..  *******
-                        ,*********************,,,,,,........ ...                                .*******
-                        ,**********************,,,,..........  .                               .********
-                        ,************************,,.........                                ..,*********
-                        ,************************. ........, .                              ..**********
-                        ,**************************,,.,..,,.....                           ..***********
-                        ,****************************...,,. .                              ,************
-                        ,****************************,......   .                             ***********
-                        ,********************************.... .,                             ***********
-                        ,********************************.......                ,,..          .*********
-                        ,********************************,..                   .,******..  .,,,.********
-                        ,*******************************,    ,*.               ..,,,,,,,*..,,,,,,*******
-                        ,*******************************  ..                   ........,,,.......*******
-                        ,******************************  .,                    ..................,******
-                        ,******************************  ,*..        ..        ........  ..     .,******
-                        ,******************************, **  .    ..,**          ......  ..    ..,******
-                        ,*********************************       .      .,,**,,,,,.........  ....*******
-                        ,********************************.       .   ..    .,****,..,....       ********
-                        """);
                 System.out.println("Do u want this " + allWeapons().get(randomWeapon).getName() + " Damage " + allWeapons().get(randomWeapon).getDamage() + " Weight " + allWeapons().get(randomWeapon).getWeight() + "\n 1 = yes 2 = no");
                 logger.fine("Do u want this " + allWeapons().get(randomWeapon).getName() + " Damage " + allWeapons().get(randomWeapon).getDamage() + " Weight " + allWeapons().get(randomWeapon).getWeight() + "\n 1 = yes 2 = no");
                 return allWeapons().get(randomWeapon);
             case 2:
-
                 int randomArmor = rand.nextInt(allArmors().size());
                 boolean nonValidArmor = true;
                 while (nonValidArmor) {
@@ -520,7 +516,7 @@ public class Game {
                         try {
                             Thread.sleep(3000);
                         } catch (InterruptedException e) {
-                            System.out.println("Vallah film heute");
+                            System.out.println("ERROR");
                         }
                         break;
                     }
