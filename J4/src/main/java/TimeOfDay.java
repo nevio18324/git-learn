@@ -1,14 +1,14 @@
 import java.time.LocalDateTime;
 
 public class TimeOfDay {
-    public String getTimeOfDays(LocalDateTime time) {
-        if (time.getHour()+2 < 6) {
+    public String getTimeOfDays(int hour) {
+        if (hour < 6) {
             return "Night";
         }
-        if (time.getHour()+2 < 12) {
+        if (hour < 12) {
             return "Morning";
         }
-        if (time.getHour()+2 < 18) {
+        if (hour < 18) {
             return "Afternoon";
         }
         return "Evening";

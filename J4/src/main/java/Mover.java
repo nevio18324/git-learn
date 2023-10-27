@@ -19,7 +19,7 @@ public class Mover {
         return lastDirection;
     }
 
-    private enum Direction {
+    enum Direction {
         NORTH,
         EAST,
         SOUTH,
@@ -42,9 +42,6 @@ public class Mover {
             return null;
         }
 
-    }
-    public Direction getDirection(){
-        return Direction.NORTH;
     }
 }
 

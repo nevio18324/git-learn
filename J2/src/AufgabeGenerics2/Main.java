@@ -9,15 +9,15 @@ public class Main {
         Numberlist<Integer> integerNumberlist = new Numberlist<>();
         Numberlist<Double> doubleNumberlist = new Numberlist<>();
         Numberlist<Float> floatNumberlist = new Numberlist<>();
-        ArrayList<Integer> resultInteger = integerNumberlist.biggestNumber(integers);
-        ArrayList<Double> resultDoubles = doubleNumberlist.biggestNumber(doubles);
-        ArrayList<Float> resultFloats = floatNumberlist.biggestNumber(floats);
-        if (resultFloats.get(0) > resultDoubles.get(0) && resultFloats.get(0) > resultInteger.get(0)) {
+        Integer resultInteger = integerNumberlist.biggestNumber(integers);
+        Double resultDoubles = doubleNumberlist.biggestNumber(doubles);
+        Float resultFloats = floatNumberlist.biggestNumber(floats);
+        if (resultFloats > resultDoubles && resultFloats > resultInteger) {
             System.out.println(resultFloats);
-        } else if (resultDoubles.get(0) > resultFloats.get(0) && resultDoubles.get(0) > resultInteger.get(0)) {
+        } else if (resultDoubles> resultFloats && resultDoubles > resultInteger) {
             System.out.println(resultDoubles);
-        } else if (resultInteger.get(0) > resultFloats.get(0) && resultInteger.get(0) > resultDoubles.get(0)) {
-            System.out.println(resultInteger.get(0));
+        } else if (resultInteger > resultFloats && resultInteger > resultDoubles) {
+            System.out.println(resultInteger);
         }
     }
     static void smallestNumberResult() {

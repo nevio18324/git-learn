@@ -21,19 +21,16 @@ public class Dictionary {
      * @Return              DictionaryStatus.ADDED falls das Wort neu ist, DictionaryStatus.UPDATED falls das Wort
      * bereits vorhanden war und DictionaryStatus.INVALID, falls das Wort ein leerer String ist oder Zahlen beinhaltet
      * */
-    public int counter = 0;
-    public DictionaryStatus addOrUpdateWord(String word, String definition,Dictionary dictionary) {
-        if (counter == 0){
-            dictionary.getRepository().add(word,definition);
-            counter++;
+    public DictionaryStatus addOrUpdateWord(String word, String definition) {
+        if (word == null||word.trim().isEmpty()||word.matches(".*\\d+.*")) {
+            return DictionaryStatus.INVALID;
+        }if (repository.getDefinition(word) == null) {
+            repository.add(word,definition);
             return DictionaryStatus.ADDED;
+        }else{
+            repository.update(word,definition);
+            return DictionaryStatus.UPDATED;
         }
-        if (dictionary.getRepository().getDefinition(word).isEmpty()){
-            dictionary.getRepository().add(word,definition);
-            return DictionaryStatus.ADDED;
-        }
-        //TODO gemäss JavaDoc umsetzen
-        return DictionaryStatus.INVALID;
     }
 
     /**
@@ -46,8 +43,13 @@ public class Dictionary {
      * "Das Wort xxx konnte im Wörterbuch nicht gefunden werden" (xxx steht als Platzhalter für das gesuchte Wort)
      */
     public String getDefinition(String word) {
-        //TODO gemäss JavaDoc umsetzen
-        return null;
+        if (word == null || word.trim().isEmpty()||word.matches(".*\\d+.*")){
+            return "Das Wort " + word + " konnte im Wörterbuch nicht gefunden werden";
+        }if (repository.getDefinition(word) == null){
+            return "Das Wort " + word + " konnte im Wörterbuch nicht gefunden werden";
+        }else {
+            return repository.getDefinition(word);
+        }
     }
 }
 
