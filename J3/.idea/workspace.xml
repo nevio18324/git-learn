@@ -5,51 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8ee5138-cd69-4509-bf5a-a4b406f180a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../J5/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../J7/src/main/java/MyArrayList/MyListInterfaceSimple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/src/main/java/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/src/main/java/Dictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/src/main/java/Mover.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/src/main/java/Mover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/src/main/java/TimeOfDay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/src/main/java/TimeOfDay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/src/test/java/DictionaryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/src/test/java/DictionaryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/src/test/java/MoverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/src/test/java/MoverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/src/test/java/PasswordValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/src/test/java/PasswordValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/src/test/java/TimeOfDayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/src/test/java/TimeOfDayTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/Dictionary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/Mover$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/Mover$Direction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/Mover.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/Mover.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/TimeOfDay.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/TimeOfDay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/DictionaryTest$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/DictionaryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/test-classes/DictionaryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/MoverTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/test-classes/MoverTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/PasswordValidatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/test-classes/PasswordValidatorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/TimeOfDayTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/test-classes/TimeOfDayTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J5/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../J5/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J5/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J5/src/main/java/FileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J5/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/main/java/Dictionary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/main/java/DictionaryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/main/java/DictionaryStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/main/java/Mover.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/main/java/PasswordValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/main/java/TimeOfDay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/test/java/DictionaryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/test/java/MoverTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/test/java/PasswordValidatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../j/src/test/java/TimeOfDayTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../J7/src/main/java/Map/MyMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/src/main/java/Map/MyMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../J7/target/classes/Map/MyMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/target/classes/Map/MyMap.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +115,8 @@
       <workItem from="1697711602196" duration="37000" />
       <workItem from="1697713593943" duration="20000" />
       <workItem from="1698239810778" duration="121000" />
+      <workItem from="1698838052722" duration="170000" />
+      <workItem from="1698932570239" duration="383000" />
     </task>
     <servers />
   </component>

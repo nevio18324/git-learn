@@ -15,7 +15,11 @@ public class MyMap {
         try (BufferedReader br = new BufferedReader(new FileReader("/home/ndigennaro/Downloads/Postleitzahlen_ISO-8859-1.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
+                StringBuilder stringBuilder = new StringBuilder(line);
+                stringBuilder.deleteCharAt(4);
+                stringBuilder.replace(4,4,"%");
+                line = String.valueOf(stringBuilder);
+                String[] parts = line.split("%");
                 amountPLZ++;
                 if (parts.length == 2) {
                     String plz = parts[0].trim();
