@@ -1,32 +1,32 @@
 package MyArrayListExt;
 
-public  class MyArrayListExtended<T> implements MyListInterfaceExtended {
-    private Object[] content;
+public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
+    private T[] content;
+
     @Override
-
-
-    public void add(Object element) {
+    public void add(T element) {
         if (this.content != null) {
-            Object[] newContent = new Object[this.content.length + 1];
+            T[] newContent =(T[]) new Object[this.content.length + 1];
             System.arraycopy(this.content, 0, newContent, 0, content.length);
             newContent[this.content.length] = element;
             this.content = newContent;
         }else {
-            this.content = new Object[]{element};
+            this.content = (T[]) new Object[]{element};
         }
     }
-    public Object get(int index){
+
+    public T get(int index){
         return this.content[index];
     }
     @Override
-    public Object remove(int index) throws IndexOutOfBoundsException {
+    public T remove(int index) throws IndexOutOfBoundsException {
         if (this.content != null) {
             if (index <= this.content.length) {
-                Object toBeRemoved = this.content[index];
+                T toBeRemoved = this.content[index];
                 for (int i = index; i < this.content.length - 1; i++) {
                     this.content[i] = this.content[i + 1];
                 }
-                Object[] newContent = new Object[this.content.length - 1];
+                T[] newContent = (T[]) new Object[this.content.length - 1];
                 System.arraycopy(this.content,0,newContent,0,this.content.length - 1);
                 this.content = newContent;
                 return toBeRemoved;
@@ -66,13 +66,13 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended {
             if (index < 0 || index > this.content.length) {
                 throw new IndexOutOfBoundsException();
             }
-            Object[] newArray = new Object[this.content.length + 1];
+            T[] newArray =(T[]) new Object[this.content.length + 1];
             System.arraycopy(this.content, 0, newArray, 0, index);
-            newArray[index] = element;
+            newArray[index] = (T) element;
             System.arraycopy(this.content, index, newArray, index + 1, this.content.length - index);
             this.content = newArray;
         } else if (this.content == null && index == 0) {
-            this.content = new Object[]{element};
+            this.content = (T[]) new Object[]{element};
         }else {
             throw new IndexOutOfBoundsException();
         }
@@ -125,7 +125,7 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended {
         if (this.content != null) {
             if (index <= this.content.length && index >= 0) {
                 Object removed = this.content[index];
-                this.content[index] = element;
+                this.content[index] = (T) element;
                 return removed;
             }else {
                 throw new  IndexOutOfBoundsException();
@@ -154,23 +154,29 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended {
         throw new IndexOutOfBoundsException();
     }
 
-    public String toString(int index) {
+    public String toString() {
+        if (this.content == null){
+            return "";
+        }
         String toReturn = "";
-        if (this.content[index] instanceof Object[]){
-            for (Object element: (Object[]) this.content[index]) {
-                toReturn += element + ", ";
+        for (Object obj: this.content) {
+            if (obj instanceof Object[]) {
+                for (Object element : (Object[]) obj) {
+                    toReturn += element + ", ";
+                }
+            } else {
+                toReturn += (String) obj;
             }
-        }else {
-            toReturn = (String) this.content[index];
         }
         return toReturn;
     }
 
-    int counter = 0;
     public static void main(String[] args) {
         MyArrayListExtended customArrayList = new MyArrayListExtended<>();
         Object ko = new Object[]{1,2,3,4,5};
         customArrayList.add(ko);
         customArrayList.add(null);
+        System.out.println(customArrayList.toString());
+        System.out.println(customArrayList.toString());
     }
 }

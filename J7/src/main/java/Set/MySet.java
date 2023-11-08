@@ -59,9 +59,15 @@ public class MySet<E> implements MySetInterfaceSimple {
 
     @Override
     public boolean contains(Object object) {
-        if (this.content != null) {
-            for (Object obj : this.content) {
-                if (obj == object) {
+        if (this.content == null) {
+            return false;
+        }
+        for (Object obj : this.content) {
+            if (obj == null && object == null){
+                return true;
+            }
+            else if (obj != null){
+                if (obj.equals(object)) {
                     return true;
                 }
             }

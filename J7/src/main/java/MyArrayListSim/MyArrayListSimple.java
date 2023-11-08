@@ -59,16 +59,21 @@ public  class MyArrayListSimple<T> implements MyListInterfaceSimple{
     }
     @Override
     public void clear() {
-        this.content = (T[]) new Object[]{};
+        this.content = new Object[]{};
     }
-    public String toString(int index) {
+    public String toString() {
+        if (this.content == null){
+            return "";
+        }
         String toReturn = "";
-        if (this.content[index] instanceof Object[]){
-            for (Object element: (Object[]) this.content[index]) {
-                toReturn += element + ", ";
+        for (Object obj: this.content) {
+            if (obj instanceof Object[]) {
+                for (Object element : (Object[]) obj) {
+                    toReturn += element + ", ";
+                }
+            } else {
+                toReturn += (String) obj;
             }
-        }else {
-            toReturn = (String) this.content[index];
         }
         return toReturn;
     }
@@ -79,6 +84,7 @@ public  class MyArrayListSimple<T> implements MyListInterfaceSimple{
         String ka = "adada";
         String[] ok = {"122","1313"};
         myArrayListSimple.add(ok);
-        System.out.println(myArrayListSimple.toString(0));
+        myArrayListSimple.add(ka);
+        System.out.println(myArrayListSimple.toString());
     }
 }

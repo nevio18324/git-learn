@@ -89,6 +89,7 @@ class MySetTest {
     @Test
     void shouldContainsElement() {
         assertTrue(setWithThirdElements.contains(ELEMENT_FIRST));
+        assertTrue(setWithThirdElements.contains(new String("First")));
         assertTrue(setWithThirdElements.contains(null));
         assertTrue(setWithThirdElements.contains(ELEMENT_THIRD));
         assertFalse(setWithThirdElements.contains(ELEMENT_SECOND));

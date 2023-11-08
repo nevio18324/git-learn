@@ -1,81 +1,131 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
+
+import static java.awt.event.KeyEvent.VK_ENTER;
 
 public class ArrowKeyMenu extends JFrame {
+    static public int amountOfCookies = 0;
+    static JTextArea textAreaCookieAmount = new JTextArea(2, 2);
+    static String[] items = {"Cookies =" + amountOfCookies};
+    static ArrowKeyMenu menu = new ArrowKeyMenu(items);
+    static int grandmaAmount = 0;
     private JLabel[] menuItems;
     private int selectedItemIndex = 0;
-
     public ArrowKeyMenu(String[] items) {
         setTitle("Arrow Key Menu");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(400, 300);
+        setSize(400, 500);
         setLocationRelativeTo(null);
 
         menuItems = new JLabel[items.length];
-        JPanel panel = new JPanel(new GridLayout(items.length, 1));
-
-        for (int i = 0; i < items.length; i++) {
-            menuItems[i] = new JLabel(items[i]);
-            menuItems[i].setOpaque(true);
-            menuItems[i].setBackground(Color.BLACK);
-            menuItems[i].setForeground(Color.WHITE);
-            panel.add(menuItems[i]);
-        }
-
+        JPanel panel = new JPanel(new GridLayout(2, 10));
+        JTextArea textAreaCookie = new JTextArea(10, 20);
+        panel.setLayout(new FlowLayout());
+        textAreaCookieAmount.append(items[0]);
+        textAreaCookieAmount.setOpaque(true);
+        textAreaCookieAmount.setBackground(Color.BLACK);
+        textAreaCookieAmount.setForeground(Color.WHITE);
+        textAreaCookieAmount.setEditable(false);
+        String cookie = """
+                ⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣶⣿⣿⡿⠿⠷⣶⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣇⠀⠀⢸⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⢀⣴⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀
+                ⠀⠀⠀⢠⣿⡟⠁⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀
+                ⠀⠀⢠⣿⣿⣿⣦⣄⣠⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣷⠀⠀⠀
+                ⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⢹⣿⣿⣿⡇⠀⠀
+                ⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠀⠀
+                ⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀
+                ⠀⠀⠈⢿⣿⣿⣿⣿⠟⠻⣿⣿⠋⠀⠉⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⢙⣿⠃⠀⠀
+                ⠀⠀⠀⠈⢿⣿⣿⠁⠀⠀⠘⣿⣆⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠙⢿⣦⣤⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠉⢹⣿⣿⡿⠟⠁⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⠿⣿⣿⣿⣷⡤⠾⠛⠉⠀⠀⠀""";
+        textAreaCookie.append(cookie);
+        textAreaCookie.setOpaque(true);
+        textAreaCookie.setBackground(Color.BLACK);
+        textAreaCookie.setForeground(Color.WHITE);
+        textAreaCookie.setEditable(false);
+        JButton grandma = new JButton("Buy Grandma  100Cookies");
+        grandma.setAction(getAction());
+        grandma.setSize(100,100);
+        grandma.setOpaque(true);
+        panel.add(textAreaCookie);
+        panel.add(textAreaCookieAmount);
+        panel.add(grandma);
         add(panel);
-        addKeyListener(new MenuKeyListener());
+
 
         // Adding an ActionListener for the Enter key
         InputMap inputMap = panel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap actionMap = panel.getActionMap();
 
-        KeyStroke enterKeyStroke = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0);
-        inputMap.put(enterKeyStroke, "enterAction");
-        actionMap.put("enterAction", new AbstractAction() {
+
+        KeyStroke enterKeyStroke = KeyStroke.getKeyStroke(VK_ENTER, 0);
+        inputMap.put(enterKeyStroke, "Mouse Click");
+        actionMap.put("Mouse Click", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Action to perform when Enter is pressed
-                JOptionPane.showMessageDialog(null, "Hello World!");
+                amountOfCookies++;
+                textAreaCookieAmount.setText("Cookies =" + amountOfCookies);
+                menu.revalidate();
+                menu.repaint();
             }
         });
-    }
-
-    private class MenuKeyListener extends KeyAdapter {
-        @Override
-        public void keyPressed(KeyEvent e) {
-            int keyCode = e.getKeyCode();
-            int itemCount = menuItems.length;
-
-            if (keyCode == KeyEvent.VK_UP) {
-                selectedItemIndex = (selectedItemIndex - 1 + itemCount) % itemCount;
-            } else if (keyCode == KeyEvent.VK_DOWN) {
-                selectedItemIndex = (selectedItemIndex + 1) % itemCount;
-            }
-            updateMenuSelection();
-        }
-    }
-
-    private void updateMenuSelection() {
-        for (int i = 0; i < menuItems.length; i++) {
-            if (i == selectedItemIndex) {
-                menuItems[i].setForeground(Color.BLACK);
-                menuItems[i].setBackground(Color.WHITE);
-            } else {
-                menuItems[i].setForeground(Color.WHITE);
-                menuItems[i].setBackground(Color.BLACK);
-            }
-        }
     }
 
     public static void main(String[] args) {
+        int thread = 1;
+        for (int i = 0; i < thread; i++) {
+            BackGround object = new BackGround();
+            object.start();
+        }
         SwingUtilities.invokeLater(() -> {
-            String[] items = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
-            ArrowKeyMenu menu = new ArrowKeyMenu(items);
+            String[] ada = {"121"};
             menu.setVisible(true);
         });
+    }
+
+    public static Action getAction() {
+        Action action = new Action() {
+            @Override
+            public Object getValue(String key) {
+                return null;
+            }
+
+            @Override
+            public void putValue(String key, Object value) {
+
+            }
+
+            @Override
+            public boolean isEnabled() {
+                return false;
+            }
+
+            @Override
+            public void setEnabled(boolean b) {
+
+            }
+
+            @Override
+            public void addPropertyChangeListener(PropertyChangeListener listener) {
+
+            }
+
+            @Override
+            public void removePropertyChangeListener(PropertyChangeListener listener) {
+
+            }
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                grandmaAmount++;
+                System.out.println(grandmaAmount);
+            }
+        };
+        return action;
     }
 }

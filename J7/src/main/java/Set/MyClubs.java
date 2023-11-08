@@ -3,6 +3,8 @@ package Set;
 import Outputvalidator.OutputValidation;
 
 import java.util.Set;
+import java.util.TreeSet;
+
 public class MyClubs {
 
     Set<String> fussballVerein = Set.of(
@@ -11,7 +13,7 @@ public class MyClubs {
     );
 
     Set<String> schwimmVerein = Set.of(
-             "Emil", "Klaus", "Paul", "Fritz", "Patrick",
+            "Emil", "Klaus", "Paul", "Fritz", "Patrick",
             "Hanne", "Anina", "Nicole", "Petra", "Gerda"
     );
 
@@ -24,77 +26,57 @@ public class MyClubs {
             "Emil", "Hans", "Paul", "Felix", "Max",
             "Lara", "Anja", "Sabine", "Anna"
     );
+    Set<String> alleVereine = new TreeSet<>();
+
 
     public static void main(String[] args) {
-        OutputValidation OutputValidation = new OutputValidation();
-        MyClubs mySet = new MyClubs();
-        String allCharacter = "";
-        String allFootballPlayers = "";
-        int amountOfPeople = 0;
-        for (Object element: mySet.tanzVerein) {
-            allCharacter += element+" ";
-        }
-        for (Object element: mySet.musikVerein) {
-            allCharacter += element+" ";
-        }
-        for (Object element: mySet.fussballVerein) {
-            allCharacter += element+" ";
-
-        }
-        for (Object element: mySet.schwimmVerein) {
-            allCharacter += element+" ";
-        }
-        String [] allCharacterSplitted = allCharacter.split(" ");
-        bubbleSort(allCharacterSplitted);
-        allCharacter = "";
-        String allDancerAndBallers = "";
-        int ballers = 0;
-        int dancersAndBallers = 0;
-        for (int i = 0; i < allCharacterSplitted.length; i++) {
-            if (!(allCharacter.contains(allCharacterSplitted[i]))){
-                amountOfPeople++;
-                if (i != allCharacterSplitted.length - 1) {
-                    allCharacter += allCharacterSplitted[i] + ",";
-                } else {
-                    allCharacter += allCharacterSplitted[i];
-                }
-            }
-            if (!(mySet.schwimmVerein.contains(allCharacterSplitted[i]))&&!(mySet.tanzVerein.contains(allCharacterSplitted[i]))&& mySet.fussballVerein.contains(allCharacterSplitted[i])){
-                    allFootballPlayers+= allCharacterSplitted[i] + ",";
-                    ballers++;
-
-            }
-            if (mySet.fussballVerein.contains(allCharacterSplitted[i]) && mySet.tanzVerein.contains(allCharacterSplitted[i])&&!(allDancerAndBallers.contains(allCharacterSplitted[i]))){
-                allDancerAndBallers += allCharacterSplitted[i] + ",";
-                dancersAndBallers++;
-            }
-        }
-        String newAllBallers = allFootballPlayers.substring(0,allFootballPlayers.length() - 1);
-        String newAllDancerAndBallers = allDancerAndBallers.substring(0,allDancerAndBallers.length() - 1);
-        System.out.println(newAllBallers);
-        OutputValidation.logAndPrint("- Wie viele Personen machen min. in einem Verein mit: "+ amountOfPeople+": "+allCharacter);
-        OutputValidation.logAndPrint("- Alle Personen, welche im Fussball und Tanz Verein sind: "+dancersAndBallers+": "+newAllDancerAndBallers);
-        OutputValidation.logAndPrint("- Alle Personen, welche im Fussball sind und nicht im Tanz oder Schwimm Verein: "+ballers+": "+newAllBallers);
-        OutputValidation.printControlHash();
-        System.out.println(-1421274666);
-
-    }
-    public static void bubbleSort(String[] array) {
-        int n = array.length;
-        boolean swapped;
-        for (int i = 0; i < n - 1; i++) {
-            swapped = false;
-            for (int j = 0; j < n - 1 - i; j++) {
-                if (array[j].compareTo(array[j + 1]) > 0) {
-                    String temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                    swapped = true;
-                }
-            }if (!swapped) {
-                break;
-            }
-        }
+        OutputValidation outputValidation = new OutputValidation();
+        MyClubs myClubs = new MyClubs();
+        myClubs.alleVereine.addAll(myClubs.tanzVerein);
+        myClubs.alleVereine.addAll(myClubs.musikVerein);
+        myClubs.alleVereine.addAll(myClubs.schwimmVerein);
+        myClubs.alleVereine.addAll(myClubs.fussballVerein);
+        outputValidation.logAndPrint(myClubs.vereinsMitglieder());
+        outputValidation.logAndPrint(myClubs.alleTänzerUndFussballer());
+        outputValidation.logAndPrint(myClubs.alleFussballerOhneTanzOderSchwimmVerein());
+        outputValidation.printControlHash();
     }
 
+    public String vereinsMitglieder() {
+        String[] vereinsMitglieder = {""};
+        int[] anzahlVereinsMitglieder = {0};
+        alleVereine.stream().forEach(s -> {
+            anzahlVereinsMitglieder[0]++;
+            vereinsMitglieder[0] += s + ", ";
+        });
+        String print = "- Wie viele Personen machen min. in einem Verein mit: " + anzahlVereinsMitglieder[0] + ": " + vereinsMitglieder[0].substring(0, vereinsMitglieder[0].length() - 2);
+        return print;
+    }
+
+    public String alleTänzerUndFussballer() {
+        String [] alleTänzerUndFussballer = {""};
+        int [] anzahlTänzerUndFussballer = {0};
+        alleVereine.stream().forEach(s -> {
+            if (tanzVerein.contains(s) && fussballVerein.contains(s)) {
+                anzahlTänzerUndFussballer[0]++;
+                alleTänzerUndFussballer[0] += s + ", ";
+            }
+        });
+        String print = "- Alle Personen, welche im Fussball und Tanz Verein sind: " + anzahlTänzerUndFussballer[0] + ": " + alleTänzerUndFussballer[0].substring(0, alleTänzerUndFussballer[0].length() - 2);
+        return print;
+    }
+
+
+    public String alleFussballerOhneTanzOderSchwimmVerein() {
+        String [] alleFussballerOhneTanzOderSchwimmVerein = {""};
+        int [] anzahlFussballerOhneTanzOderSchwimmVerein = {0};
+        alleVereine.stream().forEach(s -> {
+            if (!tanzVerein.contains(s) && !schwimmVerein.contains(s) && fussballVerein.contains(s)) {
+                anzahlFussballerOhneTanzOderSchwimmVerein[0]++;
+                alleFussballerOhneTanzOderSchwimmVerein[0] += s + ", ";
+            }
+        });
+        String print = "- Alle Personen, welche im Fussball sind und nicht im Tanz oder Schwimm Verein: " + anzahlFussballerOhneTanzOderSchwimmVerein[0] + ": " + alleFussballerOhneTanzOderSchwimmVerein[0].substring(0, alleFussballerOhneTanzOderSchwimmVerein[0].length() - 2);
+        return print;
+    }
 }

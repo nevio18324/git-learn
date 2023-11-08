@@ -398,5 +398,12 @@ class MyArrayListExtendedTest {
                     listWithThirdElements.remove(ELEMENT_FIFTH)
             );
         }
+        @Test
+        void should(){
+            MyArrayListExtended <String> myArrayListExtended = new MyArrayListExtended<>();
+            myArrayListExtended.add("1");
+            myArrayListExtended.add(1,"2");
+
+        }
     }
 }
