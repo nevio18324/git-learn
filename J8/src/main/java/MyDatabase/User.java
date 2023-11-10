@@ -63,7 +63,7 @@ public class User implements GradesInterface {
 
     @Override
     public void remove(int index) {
-        String query = "DELETE FROM Grades WHERE id = " + index;
+        String query = "DELETE FROM School.Grades WHERE id = " + index;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.execute();
@@ -96,7 +96,7 @@ public class User implements GradesInterface {
             add(grade,subject,scanner);
         }
         try {
-            String insertQuery = "INSERT INTO Grades (Subject, GRADE, DATE) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO School.Grades (Subject, GRADE, DATE) VALUES (?, ?, ?)";
 
             // Create a prepared statement
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
@@ -126,7 +126,7 @@ public class User implements GradesInterface {
     @Override
     public void edit(float newGrade, int id) {
         try {
-            String query = "UPDATE Grades SET GRADE = "+newGrade+" WHERE ID = "+id+";";
+            String query = "UPDATE School.Grades SET GRADE = "+newGrade+" WHERE ID = "+id+";";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -149,7 +149,7 @@ public class User implements GradesInterface {
     public String grade(Scanner scanner) {
         try {
             int sub = scanner.nextInt() - 1;
-            String query = "SELECT * FROM Grades WHERE Subject = " + "'" + String.valueOf(allSubject.get(sub)) + "'";
+            String query = "SELECT * FROM School.Grades WHERE Subject = " + "'" + String.valueOf(allSubject.get(sub)) + "'";
             Statement statement = connection.createStatement();
             // Execute the query
             ResultSet resultSet = statement.executeQuery(query);
@@ -181,7 +181,7 @@ public class User implements GradesInterface {
             int allTests = 0;
             double allGrades = 0;
             for (int i = 0; i < allSubject.size(); i++) {
-                String query = "SELECT * FROM Grades WHERE Subject = " + "'" + String.valueOf(allSubject.get(i)) + "'";
+                String query = "SELECT * FROM School.Grades WHERE Subject = " + "'" + String.valueOf(allSubject.get(i)) + "'";
                 Statement statement = connection.createStatement();
                 // Execute the query
                 ResultSet resultSet = statement.executeQuery(query);
@@ -221,7 +221,7 @@ public class User implements GradesInterface {
     public void printSelectStatement(Scanner scanner){
         try {
             int sub = scanner.nextInt() - 1;
-            String query = "SELECT * FROM Grades WHERE Subject = " + "'" + String.valueOf(allSubject.get(sub)) + "'";
+            String query = "SELECT * FROM School.Grades WHERE Subject = " + "'" + String.valueOf(allSubject.get(sub)) + "'";
             Statement statement = connection.createStatement();
             // Execute the query
             ResultSet resultSet = statement.executeQuery(query);
@@ -280,11 +280,11 @@ public class User implements GradesInterface {
             PreparedStatement createAllSubjectsTable = connection.prepareStatement(createTableAllSubjects);
             createAllSubjectsTable.execute();
             for (Subject sub: allSubject) {
-                String insert = "INSERT INTO AllSubjects(Subject) VALUE("+"'"+sub+"');";
+                String insert = "INSERT INTO School.AllSubjects(Subject) VALUE("+"'"+sub+"');";
                 PreparedStatement insertAllSubjects= connection.prepareStatement(insert);
                 insertAllSubjects.execute();
             }
-            PreparedStatement deleteAllDupesSub = connection.prepareStatement("DELETE FROM AllSubjects WHERE ID > 4");
+            PreparedStatement deleteAllDupesSub = connection.prepareStatement("DELETE FROM School.AllSubjects WHERE ID > 4");
             deleteAllDupesSub.execute();
 
 
@@ -294,11 +294,11 @@ public class User implements GradesInterface {
             PreparedStatement createAllGradesTable = connection.prepareStatement(createTableAllGrades);
             createAllGradesTable.execute();
             for (double i = 1; i <= 6; i += 0.25) {
-                String insert = "INSERT INTO AllGrades(GRADE) VALUE("+i+");";
+                String insert = "INSERT INTO School.AllGrades(GRADE) VALUE("+i+");";
                 PreparedStatement insertAllGrades = connection.prepareStatement(insert);
                 insertAllGrades.execute();
             }
-            PreparedStatement deleteAllDupesGRD = connection.prepareStatement("DELETE FROM AllGrades WHERE ID > 21");
+            PreparedStatement deleteAllDupesGRD = connection.prepareStatement("DELETE FROM School.AllGrades WHERE ID > 21");
             deleteAllDupesGRD.execute();
         } catch (SQLException e) {
             e.printStackTrace();

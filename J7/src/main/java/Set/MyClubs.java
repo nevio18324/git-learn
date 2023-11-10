@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class MyClubs {
-
     Set<String> fussballVerein = Set.of(
             "Emil", "Hans", "Felix", "Fritz", "Patrick",
             "Hanne", "Anja", "Paula", "Petra", "Anna"

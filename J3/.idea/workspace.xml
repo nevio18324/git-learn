@@ -5,39 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8ee5138-cd69-4509-bf5a-a4b406f180a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../J2/out/production/J2/AufgabeGenerics2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J2/out/production/J2/AufgabeGenerics2/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J2/out/production/J2/AufgabeGenerics2/Numberlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J2/out/production/J2/AufgabeGenerics2/Numberlist.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/J3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/J3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/J3/ArrowKeyMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/ArrowKeyMenu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/J3/ArrowKeyMenu$MenuKeyListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/ArrowKeyMenu$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/ArrowKeyMenu$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/J3/ArrowKeyMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/ArrowKeyMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArrowKeyMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrowKeyMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/Dictionary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/DictionaryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/DictionaryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/DictionaryStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/DictionaryStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/Mover$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/Mover$Direction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/Mover.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/Mover.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/PasswordValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/PasswordValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/classes/TimeOfDay.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/classes/TimeOfDay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/DictionaryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/test-classes/DictionaryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/MoverTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/test-classes/MoverTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/PasswordValidatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/test-classes/PasswordValidatorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J4/target/test-classes/TimeOfDayTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J4/target/test-classes/TimeOfDayTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J6/src/main/java/AnnotationAutors/Autors.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J6/src/main/java/AnnotationAutors/Autors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/src/main/java/MyArrayListExt/MyArrayListExtended.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/src/main/java/MyArrayListExt/MyArrayListExtended.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/src/main/java/MyArrayListSim/MyArrayListSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/src/main/java/MyArrayListSim/MyArrayListSimple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/src/main/java/Set/MyClubs.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/src/main/java/Set/MyClubs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/src/main/java/Set/MySet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/src/main/java/Set/MySet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/src/test/java/MyArrayListExt/MyArrayListExtendedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/src/test/java/MyArrayListExt/MyArrayListExtendedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/src/test/java/MySetTests/MySetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/src/test/java/MySetTests/MySetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/target/classes/MyArrayListExt/MyArrayListExtended.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/target/classes/MyArrayListExt/MyArrayListExtended.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/target/classes/MyArrayListSim/MyArrayListSimple.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/target/classes/MyArrayListSim/MyArrayListSimple.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/target/classes/Set/MyClubs.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/target/classes/Set/MyClubs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/target/classes/Set/MySet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/target/classes/Set/MySet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/target/test-classes/MyArrayListExt/MyArrayListExtendedTest$MyListInterfaceExtendedTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/target/test-classes/MyArrayListExt/MyArrayListExtendedTest$MyListInterfaceExtendedTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../J7/target/test-classes/MySetTests/MySetTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../J7/target/test-classes/MySetTests/MySetTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/J3/BackGround.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/J3/BackGround.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArrowKeyMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BackGround.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,29 +37,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/ndigennaro/SBB/J2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ndigennaro/SBB/J2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -159,6 +139,14 @@
       <workItem from="1699446030604" duration="6361000" />
       <workItem from="1699453481465" duration="333000" />
       <workItem from="1699454242245" duration="4174000" />
+      <workItem from="1699514863398" duration="3089000" />
+      <workItem from="1699518532179" duration="7000" />
+      <workItem from="1699518557875" duration="19000" />
+      <workItem from="1699518596019" duration="968000" />
+      <workItem from="1699519613696" duration="24000" />
+      <workItem from="1699519669336" duration="31000" />
+      <workItem from="1699519727694" duration="115000" />
+      <workItem from="1699529170355" duration="95000" />
     </task>
     <servers />
   </component>

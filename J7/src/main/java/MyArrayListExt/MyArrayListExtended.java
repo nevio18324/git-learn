@@ -176,7 +176,7 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
         Object ko = new Object[]{1,2,3,4,5};
         customArrayList.add(ko);
         customArrayList.add(null);
-        System.out.println(customArrayList.toString());
+        System.out.println(customArrayList.contains(1));
         System.out.println(customArrayList.toString());
     }
 }
