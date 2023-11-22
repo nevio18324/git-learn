@@ -26,11 +26,7 @@ public class ThreadToUpdate extends Thread{
                 textAreaCookieAmount.setText("Cookies =" + ArrowKeyMenu.getInt(connection,userId,"Cookies"));
                 menu.revalidate();
                 menu.repaint();
-                try {
-                    Thread.sleep(500);
-                } catch (Exception e) {
-                    throw new RuntimeException();
-                }
+
             }
         }catch (Exception e){
 

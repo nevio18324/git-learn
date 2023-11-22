@@ -80,6 +80,6 @@ public class ClubActivity {
         fussballNichtTanzOderSchwimmenReturnString.setLength(fussballNichtTanzOderSchwimmenReturnString.length() - 1);
         outputValidation.logAndPrint(fussballNichtTanzOderSchwimmenReturnString.toString());
 
-        outputValidation.printControlHash();
+        outputValidation.getControlHash();
     }
 }

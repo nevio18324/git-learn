@@ -42,7 +42,10 @@ public class OutputValidation {
      * Calculate the hash of the whole saved outputs and print
      * the hash to the standard output.
      */
-    public void printControlHash() {
+    public int getControlHash(){
+        return collectLogs(",").hashCode();
+    }
+    public void printControlHash(){
         System.out.println(collectLogs(",").hashCode());
     }
 

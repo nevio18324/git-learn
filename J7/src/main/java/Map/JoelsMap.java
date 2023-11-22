@@ -71,6 +71,6 @@ public class JoelsMap {
         outputValidation.log("- Grössten Gemeinden: " + String.join(", ", groesstenGemeinden));
 
         outputValidation.printAll();
-        outputValidation.printControlHash();
+        outputValidation.getControlHash();
     }
 }

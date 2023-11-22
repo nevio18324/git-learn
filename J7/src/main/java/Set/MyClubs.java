@@ -38,7 +38,7 @@ public class MyClubs {
         outputValidation.logAndPrint(myClubs.vereinsMitglieder());
         outputValidation.logAndPrint(myClubs.alleTänzerUndFussballer());
         outputValidation.logAndPrint(myClubs.alleFussballerOhneTanzOderSchwimmVerein());
-        outputValidation.printControlHash();
+        outputValidation.getControlHash();
     }
 
     public String vereinsMitglieder() {
@@ -46,9 +46,9 @@ public class MyClubs {
         int[] anzahlVereinsMitglieder = {0};
         alleVereine.stream().forEach(s -> {
             anzahlVereinsMitglieder[0]++;
-            vereinsMitglieder[0] += s + ", ";
+            vereinsMitglieder[0] += s + ",";
         });
-        String print = "- Wie viele Personen machen min. in einem Verein mit: " + anzahlVereinsMitglieder[0] + ": " + vereinsMitglieder[0].substring(0, vereinsMitglieder[0].length() - 2);
+        String print = "- Wie viele Personen machen min. in einem Verein mit: " + anzahlVereinsMitglieder[0] + ": " + vereinsMitglieder[0].substring(0, vereinsMitglieder[0].length() - 1);
         return print;
     }
 
@@ -58,10 +58,10 @@ public class MyClubs {
         alleVereine.stream().forEach(s -> {
             if (tanzVerein.contains(s) && fussballVerein.contains(s)) {
                 anzahlTänzerUndFussballer[0]++;
-                alleTänzerUndFussballer[0] += s + ", ";
+                alleTänzerUndFussballer[0] += s + ",";
             }
         });
-        String print = "- Alle Personen, welche im Fussball und Tanz Verein sind: " + anzahlTänzerUndFussballer[0] + ": " + alleTänzerUndFussballer[0].substring(0, alleTänzerUndFussballer[0].length() - 2);
+        String print = "- Alle Personen, welche im Fussball und Tanz Verein sind: " + anzahlTänzerUndFussballer[0] + ": " + alleTänzerUndFussballer[0].substring(0, alleTänzerUndFussballer[0].length() - 1);
         return print;
     }
 
@@ -72,10 +72,10 @@ public class MyClubs {
         alleVereine.stream().forEach(s -> {
             if (!tanzVerein.contains(s) && !schwimmVerein.contains(s) && fussballVerein.contains(s)) {
                 anzahlFussballerOhneTanzOderSchwimmVerein[0]++;
-                alleFussballerOhneTanzOderSchwimmVerein[0] += s + ", ";
+                alleFussballerOhneTanzOderSchwimmVerein[0] += s + ",";
             }
         });
-        String print = "- Alle Personen, welche im Fussball sind und nicht im Tanz oder Schwimm Verein: " + anzahlFussballerOhneTanzOderSchwimmVerein[0] + ": " + alleFussballerOhneTanzOderSchwimmVerein[0].substring(0, alleFussballerOhneTanzOderSchwimmVerein[0].length() - 2);
+        String print = "- Alle Personen, welche im Fussball sind und nicht im Tanz oder Schwimm Verein: " + anzahlFussballerOhneTanzOderSchwimmVerein[0] + ": " + alleFussballerOhneTanzOderSchwimmVerein[0].substring(0, alleFussballerOhneTanzOderSchwimmVerein[0].length() - 1);
         return print;
     }
 }

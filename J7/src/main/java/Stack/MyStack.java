@@ -69,7 +69,6 @@ public class MyStack implements MyStackInterface{
         }
         throw new EmptyStackException();
     }
-
     @Override
     public int search(Object o) {
         if (this.content != null) {
@@ -83,9 +82,9 @@ public class MyStack implements MyStackInterface{
         }
         return -1;
     }
-
     public static void main(String[] args) {
         MyStack myStack = new MyStack();
+        myStack.search(null);
         Integer[] ints = new Integer[]{1,2,3,4,5,6,7,8,9,10};
         myStack.push(ints);
         System.out.println(myStack.search(ints));

@@ -7,11 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-import static java.awt.event.KeyEvent.VK_ENTER;
+import static java.awt.event.KeyEvent.*;
 
 public class ArrowKeyMenu extends JFrame {
 
-    public ArrowKeyMenu(String[] items, JTextArea textAreaCookieAmount ,JButton grandma,JTextArea textAreaCookie,JPanel panel,JButton factory) {
+    public ArrowKeyMenu(String[] items, JTextArea textAreaCookieAmount ,JButton [] jButtons,JTextArea textAreaCookie,JPanel panel) {
         setTitle("Arrow Key Menu");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1920, 1080);
@@ -57,12 +57,13 @@ public class ArrowKeyMenu extends JFrame {
         textAreaCookie.setBackground(Color.BLACK);
         textAreaCookie.setForeground(Color.WHITE);
         textAreaCookie.setEditable(false);
-        grandma.setVisible(true);
-        factory.setVisible(true);
+        for (int i = 0; i < jButtons.length; i++) {
+            jButtons[i].setVisible(true);
+            panel.add(jButtons[i]);
+        }
         panel.add(textAreaCookie);
         panel.add(textAreaCookieAmount);
-        panel.add(grandma);
-        panel.add(factory);
+
         add(panel);
         panel.setBackground(Color.black);
 
@@ -73,7 +74,8 @@ public class ArrowKeyMenu extends JFrame {
         JTextArea textAreaCookie = new JTextArea(10, 20);
         Connection connection = createConnection();
         createTable(connection);
-        int userId = 1;
+
+        int userId = 2;
 
 
 
@@ -82,12 +84,14 @@ public class ArrowKeyMenu extends JFrame {
         String[] items = {"Cookies =" + getInt(connection,userId,"Cookies")};
         JButton buttonBuyGrandma = new JButton("Buy Grandma");
         JButton buttonBuyFabric = new JButton("Buy Fabric");
+        JButton buttonBuyFarm = new JButton("Buy Farm");
+        JButton buttonBuyBank = new JButton("Buy Bank");
 
 
 
 
-
-        ArrowKeyMenu menu = new ArrowKeyMenu(items,textAreaCookieAmount,buttonBuyGrandma,textAreaCookie,panel,buttonBuyFabric);
+        JButton[] jButtons = new JButton[]{buttonBuyGrandma,buttonBuyFarm,buttonBuyFabric,buttonBuyBank};
+        ArrowKeyMenu menu = new ArrowKeyMenu(items,textAreaCookieAmount,jButtons,textAreaCookie,panel);
         for (int i = 0; i < 1; i++) {
             ThreadForCookieProducers object = new ThreadForCookieProducers(menu,textAreaCookieAmount,connection,userId);
             object.start();
@@ -115,10 +119,27 @@ public class ArrowKeyMenu extends JFrame {
                 }
             }
         });
+        buttonBuyFarm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (getInt(connection,userId,"Cookies") >= 1000){
+                    buttonPressed(connection,userId,"Farm",-1000);
+                }
+            }
+        });
+        buttonBuyBank.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (getInt(connection,userId,"Cookies") >= 100000){
+                    buttonPressed(connection,userId,"Bank",-100000);
+                }
+            }
+        });
         InputMap inputMap = panel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap actionMap = panel.getActionMap();
-        KeyStroke enterKeyStroke = KeyStroke.getKeyStroke(VK_ENTER, 0);
-        inputMap.put(enterKeyStroke, "Mouse Click");
+        KeyStroke enterKeyStroke = KeyStroke.getKeyStroke(KEY_RELEASED, 0);
+        System.out.println(enterKeyStroke.getKeyChar());
+        inputMap.put(enterKeyStroke, "Enter");
         actionMap.put("Mouse Click", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -135,7 +156,8 @@ public class ArrowKeyMenu extends JFrame {
                 "id INT PRIMARY KEY AUTO_INCREMENT," +
                 "Cookies INT DEFAULT 0," +
                 "Grandmas INT DEFAULT 0," +
-                "Fabric INT DEFAULT 0" +
+                "Fabric INT DEFAULT 0," +
+                "Farm INT DEFAULT 0" +
                 ");";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(createTableAllSubjects);
@@ -145,7 +167,7 @@ public class ArrowKeyMenu extends JFrame {
         }
     }
     public static Connection createConnection() {
-        String jdbcUrl = "jdbc:mariadb://localhost:3306/Cookie";  // Specify the database name
+        String jdbcUrl = "jdbc:mariadb://localhost:3306/Cookie";
         String username = "root";
         String password = "root";
         try {

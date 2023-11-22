@@ -28,9 +28,15 @@ class ThreadForCookieProducers extends Thread {
                 if (ArrowKeyMenu.getInt(connection, this.userid, "Grandmas") >= 1) {
                     ArrowKeyMenu.updateInt(connection, userid, ArrowKeyMenu.getInt(connection, userid, "Grandmas"), "Cookies");
                 }
+                if (ArrowKeyMenu.getInt(connection,userid,"Farm") >= 1) {
+                    ArrowKeyMenu.updateInt(connection, userid, ArrowKeyMenu.getInt(connection, userid, "Farm")*10, "Cookies");
+
+                }
                 if (ArrowKeyMenu.getInt(connection,userid,"Fabric") >= 1) {
                     ArrowKeyMenu.updateInt(connection, userid, ArrowKeyMenu.getInt(connection, userid, "Fabric")*150, "Cookies");
-
+                }
+                if (ArrowKeyMenu.getInt(connection,userid,"Bank") >= 1) {
+                    ArrowKeyMenu.updateInt(connection, userid, ArrowKeyMenu.getInt(connection, userid, "Bank")*1500, "Cookies");
                 }
                 try {
                     Thread.sleep(2000);
