@@ -14,7 +14,5 @@ public class Aufgabe1 {
         System.out.println("|_|   |_|");
         System.out.println("|__   __|");
         System.out.println("|̣_|___|_|");
-
-
     }
 }

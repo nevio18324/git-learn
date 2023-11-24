@@ -3,37 +3,48 @@
     background-color: black;
     opacity: 0.1;
 }
+.listLink{
+     margin-left: 50px;
+     text-decoration: none;
+     color: white;
+ }
+#rightSide {
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    margin-right: 5%;
+}
 nav {
+
     display: flex;
     color: white;
     font-family: SansSerif, sans-serif;
     justify-content: space-between;
-    #rightSide {
-        display: flex;
-        align-items: center;
-        width: 60%;
-        font-size: 30px;
-        justify-content: flex-end;
-        margin-right: 100px;
+    
 
-    }
+}
+#leftSide {
+    display: flex;
 
-    #leftSide {
-        display: flex;
-        #itNinjaLogo {
-            display: flex;
-            width: 200px;
-        }
-        #itNinjaLogoText {
-            display: flex;
-            align-items: center;
-        }
-    }
+
 }
-li{
-    display: inline;
-    margin-left: 50px;
+#itNinjaLogoText {
+    display: flex;
+    align-items: center;
 }
+#itNinjaLogo {
+    display: flex;
+    width: 200px;
+}
+
+.links{
+    text-decoration: none;
+    color: white;
+}
+
 
 body {
     margin: 0 0 0 0;
