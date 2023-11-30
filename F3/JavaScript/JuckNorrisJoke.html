@@ -5,7 +5,10 @@
     <title>Title</title>
     <script>
         addEventListener("DOMContentLoaded", function () {
-            document.getElementById("joke").addEventListener("click",function () {
+            document.getElementById("joke").addEventListener("click", function () {
+                fetch("https://api.chucknorris.io/jokes/random").then(response => response.json())
+                    .then(data => document.getElementById("joke").value = data.value)
+                    .catch(error => console.error(error))
             })
         })
     </script>
@@ -15,7 +18,7 @@
 </body>
 </html>
 <style>
-    body{
+    body {
         display: flex;
         width: 100vw;
         height: 100vh;

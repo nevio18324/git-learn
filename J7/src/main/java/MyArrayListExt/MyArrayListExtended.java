@@ -1,23 +1,35 @@
 package MyArrayListExt;
 
-public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
+public class MyArrayListExtended<T> implements MyListInterfaceExtended<T> {
     private T[] content;
+
+    public static void main(String[] args) {
+        MyArrayListExtended<Object> customArrayList = new MyArrayListExtended<>();
+        Object ko = new Object[]{1, 2, 3, 4, 5};
+        customArrayList.add(ko);
+        customArrayList.add(null);
+        MyArrayListExtended<Object> array = new MyArrayListExtended<>();
+        array.add(ko);
+        array.add(null);
+        System.out.println(array.equals(customArrayList));
+    }
 
     @Override
     public void add(T element) {
         if (this.content != null) {
-            T[] newContent =(T[]) new Object[this.content.length + 1];
+            T[] newContent = (T[]) new Object[this.content.length + 1];
             System.arraycopy(this.content, 0, newContent, 0, content.length);
             newContent[this.content.length] = element;
             this.content = newContent;
-        }else {
+        } else {
             this.content = (T[]) new Object[]{element};
         }
     }
 
-    public T get(int index){
+    public T get(int index) {
         return this.content[index];
     }
+
     @Override
     public T remove(int index) throws IndexOutOfBoundsException {
         if (this.content != null) {
@@ -27,34 +39,36 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
                     this.content[i] = this.content[i + 1];
                 }
                 T[] newContent = (T[]) new Object[this.content.length - 1];
-                System.arraycopy(this.content,0,newContent,0,this.content.length - 1);
+                System.arraycopy(this.content, 0, newContent, 0, this.content.length - 1);
                 this.content = newContent;
                 return toBeRemoved;
 
-            }else {
+            } else {
                 throw new IndexOutOfBoundsException();
             }
         }
         return null;
     }
+
     @Override
     public int size() {
         if (this.content == null) {
             return 0;
-        }
-        else {
+        } else {
             return this.content.length;
         }
     }
+
     @Override
     public boolean isEmpty() {
-        try{
+        try {
             Object a = this.content[0];
             return false;
-        }catch (Exception e){
+        } catch (Exception e) {
             return true;
         }
     }
+
     @Override
     public void clear() {
         this.content = (T[]) new Object[]{};
@@ -66,14 +80,14 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
             if (index < 0 || index > this.content.length) {
                 throw new IndexOutOfBoundsException();
             }
-            T[] newArray =(T[]) new Object[this.content.length + 1];
+            T[] newArray = (T[]) new Object[this.content.length + 1];
             System.arraycopy(this.content, 0, newArray, 0, index);
             newArray[index] = (T) element;
             System.arraycopy(this.content, index, newArray, index + 1, this.content.length - index);
             this.content = newArray;
         } else if (this.content == null && index == 0) {
             this.content = (T[]) new Object[]{element};
-        }else {
+        } else {
             throw new IndexOutOfBoundsException();
         }
     }
@@ -110,8 +124,8 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
                     if (this.content[i].equals(o)) {
                         return i;
                     }
-                }else {
-                    if (null == o){
+                } else {
+                    if (null == o) {
                         return i;
                     }
                 }
@@ -127,8 +141,8 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
                 Object removed = this.content[index];
                 this.content[index] = (T) element;
                 return removed;
-            }else {
-                throw new  IndexOutOfBoundsException();
+            } else {
+                throw new IndexOutOfBoundsException();
             }
         }
         throw new IndexOutOfBoundsException();
@@ -143,8 +157,8 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
                         this.remove(i);
                         return true;
                     }
-                }else {
-                    if (null == o){
+                } else {
+                    if (null == o) {
                         this.remove(i);
                         return true;
                     }
@@ -154,12 +168,42 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
         throw new IndexOutOfBoundsException();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this.content == null && o != null){
+            return false;
+        }else if (this.content == null && o == null){
+            return true;
+        }
+        if (!(o instanceof MyArrayListExtended)){
+            return false;
+        }else {
+            if (((MyArrayListExtended) o).size() != this.content.length){
+                return false;
+            }else {
+                for (int i = 0; i < this.content.length; i++) {
+                    if (this.content[i] == null){
+                        if (((MyArrayListExtended)o).get(i) != null){
+                            return false;
+                        }
+                    }else {
+                        if (!(((MyArrayListExtended)o).get(i).equals(this.content[i]))){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
     public String toString() {
-        if (this.content == null){
+        if (this.content == null) {
             return "";
         }
         String toReturn = "";
-        for (Object obj: this.content) {
+        for (Object obj : this.content) {
             if (obj instanceof Object[]) {
                 for (Object element : (Object[]) obj) {
                     toReturn += element + ", ";
@@ -169,14 +213,5 @@ public  class MyArrayListExtended<T> implements MyListInterfaceExtended <T>{
             }
         }
         return toReturn;
-    }
-
-    public static void main(String[] args) {
-        MyArrayListExtended customArrayList = new MyArrayListExtended<>();
-        Object ko = new Object[]{1,2,3,4,5};
-        customArrayList.add(ko);
-        customArrayList.add(null);
-        System.out.println(customArrayList.contains(1));
-        System.out.println(customArrayList.toString());
     }
 }

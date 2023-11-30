@@ -27,47 +27,54 @@ public class User implements GradesInterface {
 
 
     public void action(Scanner scanner) {
+        boolean running = true;
         System.out.println("\u001B[33mPress Enter to Start");
-        scanner.nextLine();
-        System.out.println("\u001B[33m1 | Neue Note\n2 | Note Löschen\n3 | Note bearbeiten\n4 | Fachdurchschnitt bekommen\n5 | Zeugnis");
-        String whichSubject = """
-                \u001B[33mWelches Fach?
-                1 | Franz
-                2 | Physik
-                3 | Math
-                4 | Englisch""";
-        switch (scanner.nextLine()) {
-            case "1" -> {
-                System.out.println(whichSubject);
-                caseAdd(scanner);
-            }
-            case "2" -> {
-                System.out.println(whichSubject);
-                caseRemove(scanner);
-            }
-            case "3" -> {
-                System.out.println(whichSubject);
-                caseEdit(scanner);
-            }
-            case "4" -> {
-                System.out.println(whichSubject);
-                System.out.println(grade(scanner));
-            }
-            case "5" -> {
-                System.out.println(zeugnis());
-            }
-            default -> {
-                action(scanner);
-            }
+        while (running) {
+            scanner.nextLine();
+            System.out.println("\u001B[33m1 | Neue Note\n2 | Note Löschen\n3 | Note bearbeiten\n4 | Fachdurchschnitt bekommen\n5 | Zeugnis\nExit | Beenden");
+            String whichSubject = """
+                    \u001B[33mWelches Fach?
+                    1 | Franz
+                    2 | Physik
+                    3 | Math
+                    4 | Englisch""";
+            switch (scanner.nextLine().toLowerCase()) {
+                case "1" -> {
+                    System.out.println(whichSubject);
+                    caseAdd(scanner);
+                }
+                case "2" -> {
+                    System.out.println(whichSubject);
+                    caseRemove(scanner);
+                }
+                case "3" -> {
+                    System.out.println(whichSubject);
+                    caseEdit(scanner);
+                }
+                case "4" -> {
+                    System.out.println(whichSubject);
+                    System.out.println(grade(scanner));
+                }
+                case "5" -> {
+                    System.out.println(zeugnis());
+                }
+                case "exit" ->{
+                    System.exit(0);
+                }
+                default -> {
+                    action(scanner);
+                }
 
+            }
         }
     }
 
     @Override
     public void remove(int index) {
-        String query = "DELETE FROM School.Grades WHERE id = " + index;
+        String query = "DELETE FROM School.Grades WHERE id =  ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,index);
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -122,8 +129,6 @@ public class User implements GradesInterface {
                 set.next();
             }
             user.add(user.getGrade(scanner), set.getString("Subject"), scanner);
-        } catch (IndexOutOfBoundsException e) {
-            action(scanner);
         } catch (NumberFormatException e) {
             action(scanner);
         } catch (SQLException e) {
@@ -134,9 +139,11 @@ public class User implements GradesInterface {
     @Override
     public void edit(float newGrade, int id) {
         try {
-            String query = "UPDATE Grades SET GRADE = " + newGrade + " WHERE ID = " + id;
-            Statement statement = connection.createStatement();
-            statement.execute(query);
+            String query = "UPDATE Grades SET GRADE = ?  WHERE ID =  ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setFloat(1,newGrade);
+            statement.setInt(2,id);
+            statement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

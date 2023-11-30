@@ -22,7 +22,7 @@ public class MyStack implements MyStackInterface{
         if (this.content != null) {
             Object obj = this.content[0];
             Object[] newContent = new Object[this.content.length - 1];
-            System.arraycopy(this.content, 1, newContent, 0, this.content.length - 1);
+            System.arraycopy(this.content, 0, newContent, 0, this.content.length - 1);
             this.content = newContent;
             return obj;
         }
@@ -32,7 +32,7 @@ public class MyStack implements MyStackInterface{
     @Override
     public Object peek() {
         if (this.content != null) {
-            return this.content[0];
+            return this.content[this.content.length-1];
         }
         throw new EmptyStackException();
     }
